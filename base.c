@@ -8,7 +8,7 @@
 
  Remarque(s)    : <� compl�ter>
 
- Compilateur    : Mingw-w64 gcc 8.1.0
+ Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
 */
 
@@ -16,6 +16,6 @@
 #include <stdlib.h>
 
 int main(void) {
-    // <code>
-    return EXIT_SUCCESS;
+	// <code>
+	return EXIT_SUCCESS;
 }

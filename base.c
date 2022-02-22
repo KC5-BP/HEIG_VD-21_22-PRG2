@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Nom du fichier : <nom du fichier>.<x> (x = h ou c)
- Auteur(s)      : <pr�nom> <nom>
+ Auteur(s)      : K. BOUGNON-PEIGNE
  Date creation  : <jj.mm.aaaa>
 
  Description    : <� compl�ter>

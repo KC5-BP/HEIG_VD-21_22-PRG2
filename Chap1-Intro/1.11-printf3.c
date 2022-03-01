@@ -23,10 +23,7 @@ int main(void) {
 #include <inttypes.h>
 
 #define PRINT_VAR(VAR) (		\
-	printf(#VAR " = %lu", VAR)	\
-)
-#define ENDL() (	\
-	printf("\n")	\
+	printf(#VAR " = %lu\n", VAR)	\
 )
 
 int main(void) {
@@ -34,7 +31,6 @@ int main(void) {
 	uint32_t j = UINT32_MAX;
 
 	PRINT_VAR(i);
-	ENDL();
 	PRINT_VAR(j);
 
 	return EXIT_SUCCESS;

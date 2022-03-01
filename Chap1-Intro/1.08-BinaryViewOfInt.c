@@ -14,28 +14,22 @@
 
 #define FILL_FROM_MSB_TO_LSB 0
 #define FILL_FROM_LSB_TO_MSB 1
-#define FILL_METHOD FILL_FROM_LSB_TO_MSB
+#define FILL_METHOD FILL_FROM_MSB_TO_LSB
 
 void decimalToBinary(int32_t n, int8_t binary[]) {
-	for (int i = 0; i < BIT_SIZE_32_BITS; ++i)
-		#if FILL_METHOD == FILL_FROM_MSB_TO_LSB
-		// [0, 1, ... , BIT-2, BIT-1] : MSB to LSB
-		binary[i] = (n & (1 << (BIT_SIZE_32_BITS-i-1))) >> (BIT_SIZE_32_BITS-i-1);
-		#elif FILL_METHOD == FILL_FROM_LSB_TO_MSB
-		// [0, 1, ... , BIT-2, BIT-1] : LSB to MSB
-		binary[i] = n >> i & 1;
-		#endif
+	#if FILL_METHOD == FILL_FROM_MSB_TO_LSB
+	for (int i = BIT_SIZE_32_BITS-1; i >= 0; --i)	// [0, 1, ... , BIT-2, BIT-1] :
+		binary[i] = n >> i & 1;								// MSB to LSB
+	#elif FILL_METHOD == FILL_FROM_LSB_TO_MSB
+	for (int i = 0; i < BIT_SIZE_32_BITS; ++i)	// [0, 1, ... , BIT-2, BIT-1] :
+		binary[i] = n >> i & 1;							// LSB to MSB
+	#endif
 }
 void printBinary(int8_t binary[]) {
 	printf("0b");
-	for (int i = 0; i < BIT_SIZE_32_BITS; ++i) {
-		if (!(i % 4) && (i != 0))
-			printf(" ");
-		#if FILL_METHOD == FILL_FROM_MSB_TO_LSB
+	for (int i = BIT_SIZE_32_BITS-1; i >= 0 ; --i) {
 		printf("%d", binary[i]);
-		#elif FILL_METHOD == FILL_FROM_LSB_TO_MSB
-		printf("%d", binary[BIT_SIZE_32_BITS-i-1]);
-		#endif
+		if ( !(i % 4) )	printf(" ");
 	}
 	printf("\n");
 }
@@ -48,6 +42,5 @@ int main(void) {
 		decimalToBinary(n, binary);
 		printBinary(binary);
 	}
-
 	return EXIT_SUCCESS;
 }

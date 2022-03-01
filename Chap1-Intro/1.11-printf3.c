@@ -20,8 +20,22 @@ int main(void) {
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
+
+#define PRINT_VAR(VAR) (		\
+	printf(#VAR " = %lu", VAR)	\
+)
+#define ENDL() (	\
+	printf("\n")	\
+)
 
 int main(void) {
-	// <code>
+	size_t i = 1;
+	uint32_t j = UINT32_MAX;
+
+	PRINT_VAR(i);
+	ENDL();
+	PRINT_VAR(j);
+
 	return EXIT_SUCCESS;
 }

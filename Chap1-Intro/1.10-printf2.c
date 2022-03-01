@@ -14,6 +14,13 @@
 #include <stdlib.h>
 
 int main(void) {
-	// <code>
+	int n = 255;
+	double d = 12.345;
+	printf("%04o\n", n);	// OR printf("0%o\n", n);
+	printf("%X\n", n);		// %x : lowercase | %X : UPPERCASE
+	printf("+###%d\n", n);	//
+	printf("%.4e\n", d);
+	printf("%g\n", d); // OR printf("%2.3f\n", d);
+	printf("%2.4f\n", d);
 	return EXIT_SUCCESS;
 }

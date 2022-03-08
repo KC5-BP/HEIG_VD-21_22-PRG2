@@ -11,7 +11,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+short lowestOrderSetBit(int n) {
+   if (n == 0) return (-1);
+   short pos = 0;
+   while (n >> pos & 1)
+      ++pos;
+   return pos;
+}
+
 int main(void) {
-	// <code>
+   int n = 5;
+   printf("First bit set is at : %d\n", lowestOrderSetBit(n));
 	return EXIT_SUCCESS;
 }

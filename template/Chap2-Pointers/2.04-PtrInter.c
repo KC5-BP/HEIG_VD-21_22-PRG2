@@ -1,10 +1,11 @@
 /*
  -----------------------------------------------------------------------------------
- Nom du fichier : <nom du fichier>.<x> (x = h ou c)
- Auteur(s)      : K. BOUGNON-PEIGNE
+ Nom du fichier : 2.04-PtrInter.c
+ Auteur(s)      : (\_/)
  Date creation  : <jj.mm.aaaa>
 
- Description    : <� compl�ter>
+ Description    : 2.04
+                     Traduire en Francais les declarations C suivantes
 
  Remarque(s)    : <� compl�ter>
 
@@ -16,15 +17,14 @@
 #include <stdlib.h>
 
 /*
- * 1) Parenthesis
- * 2) Pointer
- * 3) Array
- * 4) Function
+ * 1) Parenthesis / Parentheses
+ * 2) Pointer     / Pointeurs
+ * 3) Array       / Tableau
+ * 4) Function    / Fonction
  */
 int main(void) {
-   char** a[10];              // Array of 10 pointer on char pointing on char
-   double* (*b)(void);        // Pointer on function returning a pointer on double
-                              // without argument.
+   char** a[10];
+   double* (*b)(void);
    double (*c)(double*);
    int* d[10];
    int (*e)[10];

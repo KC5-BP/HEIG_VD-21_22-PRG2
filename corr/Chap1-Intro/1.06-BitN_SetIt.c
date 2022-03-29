@@ -1,15 +1,31 @@
-// Exo 1.6 : Donnee ;
-//                   Sans if et en utilisant seulement operateurs de manip. de bits,
-//                   implementez la fn dont le prototype et la semantique
-//                   sont definis comme suit :
-//                int* setBit(unsigned short pos, unsigned short bitValue, int* n);
-//                   Semantique :
-//                                  Fixe la valeur du bit en position << pos >>
-//                                  dans la representation binaire du nbr << n >>.
-//                   Indication : La pos '0' est la position du bit de poid faible.
+/*
+ -----------------------------------------------------------------------------------
+ Nom du fichier : 1.06-BitN_SetIt.c
+ Auteur(s)      : (\_/)
+ Date creation  : <jj.mm.aaaa>
 
-#define CORR_PROF 1
-#ifdef CORR_PROF
+ Description    : 1.06
+                     Sans if et en utilisant seulement operateurs de manip. de bits,
+                     implementez la fn dont le prototype et la semantique sont
+                     definis comme suit :
+int* setBit(unsigned short pos, unsigned short bitValue, int* n);
+
+                     Semantique :
+                        Fixe la valeur du bit en position << pos >> dans la
+                        representation binaire du nbr << n >>.
+
+                     Indication :
+                        La pos '0' est la position du bit de poid faible.
+
+                     Exemples :
+                        getBit(0, 5) = 1; getBit(1, 5) = 0; getBit(2, 5) = 1
+
+ Remarque(s)    : <� compl�ter>
+
+ Compilateur    : Mingw-w64 gcc 11.2.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -35,7 +51,3 @@ int* setBit(unsigned short pos, unsigned short bitValue, int* n) {
    *n ^= (-bitValue ^ *n) & (1 << pos);
    return n;
 }
-
-#else
-
-#endif

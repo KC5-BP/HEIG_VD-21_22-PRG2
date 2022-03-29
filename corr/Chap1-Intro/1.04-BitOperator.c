@@ -1,20 +1,31 @@
-// Exo 1.4 : Donnee ;
-//                  Que valent chacune des expressions suivantes
 /*
-1)    22 | 11
-2)    0 ^ 19
-3)    2 << 3
-4)    30 & 14
-5)    8 >> 2
-6)    4 & 29
-7)    9 << 4
-8)    31 ^ 27
-9)    23 | 3
-10)   -1 >> 1
-11)   -5 >> 1
-12)   3 & ~2
-13)   6 | 5 & 4
- */
+ -----------------------------------------------------------------------------------
+ Nom du fichier : 1.04-BitOperator.c
+ Auteur(s)      : (\_/)
+ Date creation  : <jj.mm.aaaa>
+
+ Description    : 1.04
+                     Que valent chacune des expressions suivantes
+                        1)    22 | 11
+                        2)    0 ^ 19
+                        3)    2 << 3
+                        4)    30 & 14
+                        5)    8 >> 2
+                        6)    4 & 29
+                        7)    9 << 4
+                        8)    31 ^ 27
+                        9)    23 | 3
+                        10)   -1 >> 1
+                        11)   -5 >> 1
+                        12)   3 & ~2
+                        13)   6 | 5 & 4
+
+ Remarque(s)    : <� compl�ter>
+
+ Compilateur    : Mingw-w64 gcc 11.2.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -64,7 +75,6 @@ int main() {
 	printf("10) %d\n", -1 >> 1);		// NOLINT
 	// Before Exec. :       1111 1111 1111 1111 1111 1111 1111 1111
 	//                      1111 1111 1111 1111 1111 1111 1111 1111 => -1
-	// Before Exec. :
 	// After Exec. :    -1
 	printf("11) %d\n", -5 >> 1);		// NOLINT
 	// Before Exec. :       1111 1111 1111 1111 1111 1111 1111 1011

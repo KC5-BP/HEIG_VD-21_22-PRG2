@@ -1,29 +1,47 @@
-// Exo 1.12 : Donnee ;
-//                  Le code suivant est pleins d'erreurs et
-//                  maladresses, corrigez les.
 /*
-#include <cstdio.h>
-#include <cstdlib.h>
-using namespace std;
-int main() {
-    int n, char c;
-    printf("Donnez un nombre entier et un caractere : ");
-    scanf("%d%c", n, c);
-    printf("n = %d, c = %c\n", n, c);
-    return EXIT_SUCCESS;
-}
- */
-#include <stdio.h>
+ -----------------------------------------------------------------------------------
+ Nom du fichier : 1.12-scanf.c
+ Auteur(s)      : (\_/)
+ Date creation  : <jj.mm.aaaa>
+
+ Description    : 1.12
+                    Le code suivant est pleins d'erreurs et maladresses,
+                    corrigez les.
+
+ Remarque(s)    : <� compl�ter>
+
+ Compilateur    : Mingw-w64 gcc 11.2.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include <stdlib.h>
+#include <stdio.h>
+
+void clear_stdin(void);
 
 int main(void) {
-	int n;
-	char c;
+   int n; char c;
 
-	printf("Donnez un nombre entier et un caractere : ");
-	scanf("%d%c", &n, &c);
+   printf("%s", "Donnez un nombre entier et un caractere : ");
 
-	printf("n = %d, c = %c\n", n, c);
+   if (scanf("%d %c", &n, &c) == 2)
+      printf("n = %d, c = %c\n", n, c);
+   clear_stdin();
 
-	return EXIT_SUCCESS;
+   return EXIT_SUCCESS;
 }
+
+void clear_stdin(void) {
+   int c;
+   do {
+      c = getchar();
+   } while (c != '\n' && c != EOF);
+}
+
+// Nota Bene : clear_stdin doesn't work if the buffer isn't initially empty.
+// Alternative working in any case would be :
+/*
+void clear_stdin(void) {
+   fseek(stdin, 0, SEEK_END);
+}
+ */

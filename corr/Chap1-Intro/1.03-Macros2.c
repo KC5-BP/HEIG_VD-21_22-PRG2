@@ -11,7 +11,11 @@
                         fonction abs de stdlib) la macro ABS de maniere
                         a eviter les problemes du pt2 ?
 
- Remarque(s)    : <� compl�ter>
+ Remarque(s)    : 1) See code below
+                  2) ° Change the waz of working if not -(X) like seen with 4
+                     ° And multiple increase instead of a simple one
+                        ("Side effect" / "Effet de bord" on 5 & 6) .
+                  3) ° Yes, by creating a "generic" macros for an abs fn.
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
@@ -109,14 +113,7 @@
 #endif   // END PT3_CORRECTED
 
 /*
- * 2) - Multiple increase instead of a simple one
- *                   ("Side effect" / "Effet de bord" on 5 & 6) .
- *    - False, because like the 4 shows us, we need to obtain 1.
- */
-
-/*
- * 3) Yes, by creating a "generic" macros for an abs fn.
- *      Like so :
+ * Side note(s) :
 #define GENERIC_ABS(type)					\
 type abs_##type(type input) {				\
 	return input > 0 ? input : -input;	\

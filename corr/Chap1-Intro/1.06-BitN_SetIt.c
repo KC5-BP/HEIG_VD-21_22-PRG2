@@ -17,9 +17,6 @@ int* setBit(unsigned short pos, unsigned short bitValue, int* n);
                      Indication :
                         La pos '0' est la position du bit de poid faible.
 
-                     Exemples :
-                        getBit(0, 5) = 1; getBit(1, 5) = 0; getBit(2, 5) = 1
-
  Remarque(s)    : <� compl�ter>
 
  Compilateur    : Mingw-w64 gcc 11.2.0

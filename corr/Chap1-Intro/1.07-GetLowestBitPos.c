@@ -60,7 +60,7 @@ short lowestOrderSetBit(int n) {
    while ( !(n >> pos & 1) )  ++pos;
    return pos;
 }
-   Alternativ to the teacher's (but still to my opinion) :
+   Alternative to the teacher's (but still to my opinion) :
 short lowestOrderSetBit(int n) {
    short order = (-1);
    if (n != 0) {

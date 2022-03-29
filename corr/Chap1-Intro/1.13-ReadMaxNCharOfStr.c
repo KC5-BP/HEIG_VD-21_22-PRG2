@@ -1,81 +1,55 @@
-// Exo 1.13 : Donnee ;
-//                  1) Le code suivant, pourtant simple, comporte 3 erreurs majeurs
-//                  Lesquels ?
-//                  2) Reecrire le code en corrigeant les dites erreurs.
 /*
+ -----------------------------------------------------------------------------------
+ Nom du fichier : 1.13-ReadMaxNCharOfStr.c
+ Auteur(s)      : (\_/)
+ Date creation  : <jj.mm.aaaa>
+
+ Description    : 1.13
+                     1) Le code suivant, pourtant simple, comporte 3 erreurs majeurs
+                        Lesquels ?
+                     2) Reecrire le code en corrigeant les dites erreurs.
+
+ Remarque(s)    : 1)
+                       i)  Program don't work if input has spaces.
+                      ii)  %20s hard written. It will be better to build the format
+                           from value.
+                     iii)  Input buffer is not cleared.
+                  2) See code below
+
+ Compilateur    : Mingw-w64 gcc 11.2.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
+
 #define TAILLE_NOM 20
+
+void clear_stdin(void);
+
 int main(void) {
-    char nom[TAILLE_NOM + 1];
-    printf("Entrez votre nom (%d caract. max) : ", TAILLE_NOM);
-    scanf("%20s", nom);
-    printf("Votre nom est \"%s\"\n", nom);
-    system(PAUSE);
-    return EXIT_SUCCESS;
+   char nom[TAILLE_NOM + 1];
+   char format[10];
+
+   sprintf(format, " %%%d[^\n]", TAILLE_NOM);
+   printf("Entrez votre nom (%d caract. max) : ", TAILLE_NOM);
+   scanf(format, nom);
+   clear_stdin();
+
+   printf("Votre nom est \"%s\"\n", nom);
+
+   return EXIT_SUCCESS;
+}
+
+/*
+void clear_stdin(void) {
+   int c;
+   do {
+      c = getchar();
+   } while (c != '\n' && c != EOF);
 }
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <string.h>
-
-#define TAILLE_NOM 20
-
-int getNbrOfDigits(int n);
-//#define RECURSIV 0
-#ifdef RECURSIV
-int getNbrOfDigits(int n) {
-   if (n < 0)
-      n = (n == INT_MIN) ? (INT_MAX) : (-n);
-   if (n < 10) return 1;
-   return 1 + getNbrOfDigits(n/10);
-}
-#else
-int getNbrOfDigits(int n) {
-   int d = 1;
-   if (n < 0)
-      n = (n == INT_MIN) ? (INT_MAX) : (-n);
-   while (n > 9) {
-      n /= 10;
-      ++d;
-   }
-   return d;
-}
-#endif
-
-const char* makeScanfFormat(int SIZE_MAX) {
-   int d = getNbrOfDigits(SIZE_MAX);
-   char* dAsStr = (char*)calloc((unsigned)(d+1), sizeof(char)); // + '\0'
-   char* inputFormat = (char*)calloc((unsigned)(d+3+4), sizeof(char));
-   //					                                 + '%' + 's' + '\0'
-   //					                                 + '[' + '^' + '\n' + ']'
-   sprintf(dAsStr, "%d", SIZE_MAX);
-   strcat(inputFormat, "%");
-   strcat(inputFormat, dAsStr);
-   strcat(inputFormat, "[^\n]");
-
-   return inputFormat;
-}
-
-int main(void) {
-   char nom[TAILLE_NOM + 1] = {'\0'};  // 1) Pas initialisé par défaut. Donc si
-                                       // tableau non rempli, peut afficher
-                                       // n'importe quoi.
-  int nbrOfCharRead;
-
-   printf("Entrez votre nom (%d caract. max) : ", TAILLE_NOM);
-   nbrOfCharRead = scanf(makeScanfFormat(TAILLE_NOM), nom);  // 2) Ne dépend pas de
-   //                                                                   TAILLE_NOM
-   printf("Votre nom est \"%s\"\n", nom);
-
-#ifdef _WIN32
-   system("pause");  // PAUSE instead "pause"
-#elif __linux__
-   system("sleep 5");   // PAUSE/SLEEP 5s.
-#elif defined (_APPLE_)
-   system("pause");  // PAUSE instead "pause"
-#endif
-   return EXIT_SUCCESS;
+void clear_stdin(void) {
+   fseek(stdin, 0, SEEK_END);
 }

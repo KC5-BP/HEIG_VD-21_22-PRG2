@@ -1,14 +1,25 @@
-// Exo 1.10 : Donnee ;
-//                  Soit les valeurs :
-//                      int n = 255;
-//                      double x = 12.345;
-//                  Completer le code pour afficher :
-//                      0377
-//                      FF
-//                      +###255
-//                      1.235e+001
-//                      12.345
-//                      12.3450
+/*
+ -----------------------------------------------------------------------------------
+ Nom du fichier : 1.10-printf2.c
+ Auteur(s)      : (\_/)
+ Date creation  : <jj.mm.aaaa>
+
+ Description    : 1.10
+                     Soit le squelette de code donne ..
+
+                     Completer pour obtenir en sorti de programme :
+                        0377
+                        FF
+                        +###255
+                        1.235e+001
+                        12.345
+                        12.3450
+
+ Remarque(s)    : <� compl�ter>
+
+ Compilateur    : Mingw-w64 gcc 11.2.0
+ -----------------------------------------------------------------------------------
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,11 +27,14 @@
 int main(void) {
 	int n = 255;
 	double d = 12.345;
-	printf("%04o\n", n);	// OR printf("0%o\n", n);
-	printf("%X\n", n);		// %x : lowercase | %X : UPPERCASE
-	printf("+###%d\n", n);	//
-	printf("%.4e\n", d);
-	printf("%g\n", d); // OR printf("%2.3f\n", d);
-	printf("%2.4f\n", d);
-	return EXIT_SUCCESS;
+
+   // <A COMPLETER>
+   printf("%\n", n);
+   printf("%\n", n);
+   printf("%\n", n);
+   printf("%\n", d);
+   printf("%\n", d);
+   printf("%\n", d);
+
+   return EXIT_SUCCESS;
 }

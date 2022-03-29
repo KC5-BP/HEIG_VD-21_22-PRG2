@@ -1,46 +1,81 @@
-// Exo 1.8 : Donnee ;
-//                  En utilisant au maximum les operateurs de manip. de bits,
-//                  implementez la fn dont le prototype et la semantique
-//                  sont definis comme suit :
-//                                  void decimalToBinary(int32_t n, int8_t binary[]);
-//                  Semantique :
-//                                  Convertit en binaire le nbr entier decimal << n >>
-//                                  Et place le resultat dans le tableau << binary >>.
+/*
+ -----------------------------------------------------------------------------------
+ Nom du fichier : 1.08-BinaryViewOfInt.c
+ Auteur(s)      : (\_/)
+ Date creation  : <jj.mm.aaaa>
+
+ Description    : 1.08
+                     Sans if et en utilisant seulement operateurs de manip. de bits,
+                     implementez la fn dont le prototype et la semantique sont
+                     definis comme suit :
+void decimalToBinary(int32_t n, int8_t binary[]);
+
+                     Semantique :
+                        Convertit en binaire le nbr entier decimal << n >> et place
+                        le resultat dans le tableau << binary >>.
+
+ Remarque(s)    : <� compl�ter>
+
+ Compilateur    : Mingw-w64 gcc 11.2.0
+ -----------------------------------------------------------------------------------
+*/
 
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 
-#define BIT_SIZE_32_BITS (sizeof(int32_t) * 8)
+#define INT32_T_SIZE sizeof(int32_t) * 8
 
-#define FILL_FROM_MSB_TO_LSB 0
-#define FILL_FROM_LSB_TO_MSB 1
-#define FILL_METHOD FILL_FROM_MSB_TO_LSB
-
-void decimalToBinary(int32_t n, int8_t binary[]) {
-	#if FILL_METHOD == FILL_FROM_MSB_TO_LSB
-	for (int i = BIT_SIZE_32_BITS-1; i >= 0; --i)	// [0, 1, ... , BIT-2, BIT-1] :
-		binary[i] = n >> i & 1;								// MSB to LSB
-	#elif FILL_METHOD == FILL_FROM_LSB_TO_MSB
-	for (int i = 0; i < BIT_SIZE_32_BITS; ++i)	// [0, 1, ... , BIT-2, BIT-1] :
-		binary[i] = n >> i & 1;							// LSB to MSB
-	#endif
-}
-void printBinary(int8_t binary[]) {
-	printf("0b");
-	for (int i = BIT_SIZE_32_BITS-1; i >= 0 ; --i) {
-		printf("%d", binary[i]);
-		if ( !(i % 4) )	printf(" ");
-	}
-	printf("\n");
-}
+void decimalToBinary(int32_t n, int8_t binary[]);
+void display(const int8_t binary[], size_t size);
+void test(int32_t n);
 
 int main(void) {
-	int8_t binary[BIT_SIZE_32_BITS] = {0};
+   printf("12345678901234567890123456789012\n");
+   printf("--------------------------------\n");
+   test(0);
+   test(1);
+   test(10);
+   test(-1);
+   test(INT32_MIN);
+   test(INT32_MAX);
 
-	for(int32_t n = 0; n < 50; n+=5) {
-		printf("n = %2d : ", n);
-		decimalToBinary(n, binary);
-		printBinary(binary);
-	}
 	return EXIT_SUCCESS;
 }
+
+void decimalToBinary(int32_t n, int8_t binary[]) {
+   for (int i = INT32_T_SIZE; i > 0; --i) {
+      binary[i - 1] = n & 1;
+      n >>= 1;
+   }
+}
+// Alternativ (Teacher) :
+/*
+void decimalToBinary(int32_t n, int8_t binary[]) {
+   for (int i = 0; i < INT32_T_SIZE; ++i)
+      binary[INT32_T_SIZE - i - 1] = n >> i & 1;
+}
+ */
+
+void display(const int8_t binary[], size_t size) {
+   for (size_t i = 0; i < size; ++i)
+      printf("%d", binary[i]);   // OR printf("%" PRId8, binary[i])
+                                 // But replace <stdint.h> with <inttypes.h>
+   printf("\n");
+}
+
+void test(int32_t n) {
+   int8_t binary[INT32_T_SIZE];
+   decimalToBinary(n, binary);
+   display(binary, INT32_T_SIZE);
+}
+
+// Outputs :
+//12345678901234567890123456789012
+//--------------------------------
+//00000000000000000000000000000000
+//00000000000000000000000000000001
+//00000000000000000000000000001010
+//11111111111111111111111111111111
+//10000000000000000000000000000000
+//01111111111111111111111111111111

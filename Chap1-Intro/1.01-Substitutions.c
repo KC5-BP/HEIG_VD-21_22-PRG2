@@ -1,6 +1,23 @@
 // Exo 1.1 : Donnee ;
-//                  Indiquer ce qui va etre afficher depuis la ligne 31 ..
+//                   Indiquer ce que va afficher le code suivant :
+/*
+#include <stdio.h>
+#include <stdlib.h>
 
+#define A 1
+#define B 2
+#define AB 3
+#define F(X,Y) X##Y
+
+int main(void) {
+   int n = AB;
+   printf("%<?>\n", n);
+   printf("%<?>\n", "AB");
+   printf("%<?>\n", F(A, B));
+
+   return EXIT_SUCCESS;
+}
+ */
 #include <stdio.h>
 #include <stdlib.h>
 

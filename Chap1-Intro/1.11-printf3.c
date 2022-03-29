@@ -22,7 +22,7 @@ int main(void) {
 #include <stdlib.h>
 #include <inttypes.h>
 
-#define PRINT_VAR(VAR) (		\
+#define PRINT_VAR(VAR) (		   \
 	printf(#VAR " = %lu\n", VAR)	\
 )
 

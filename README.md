@@ -15,4 +15,8 @@ Both folders are organised as follow :
 _Tips :_ Fork the repository to your profile and do the exercise on the template
 folder or duplicate it if you want to keep the template folder untouched.
 
+_Nota Bene :_
+
+This repo. is written 21_22, but exercises are a lot alike and will probably be
+re-used for the years to come (as they were re-used at least the year before).
 

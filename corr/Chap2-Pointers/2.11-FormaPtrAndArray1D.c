@@ -21,10 +21,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TAB_SIZE 10
-
 #define FN_DECLARATION_SELECTED 0
 
+#define TAB_SIZE 10
+
+void initialiser(int* tab, unsigned int tabSize, int initValue);
+void printArray(int* tab, unsigned int tabSize);
+
+int main(void) {
+   //int tab[TAB_SIZE];    // Don't work with memset without : = {};
+   int tab[TAB_SIZE] = {};
+
+   initialiser(tab, TAB_SIZE, 0);
+   printArray(tab, TAB_SIZE);
+
+   return EXIT_SUCCESS;
+}
 #if FN_DECLARATION_SELECTED == 0
 void initialiser(int* tab, unsigned int tabSize, int initValue) {
    if(tabSize)
@@ -67,14 +79,4 @@ void printArray(int* tab, unsigned int tabSize) {
       if ( i )  printf(", ");
       printf("%d", tab[i]);
    }
-}
-
-int main(void) {
-   //int tab[TAB_SIZE];    // Don't work with memset without : = {};
-   int tab[TAB_SIZE] = {};
-
-   initialiser(tab, TAB_SIZE, 0);
-   printArray(tab, TAB_SIZE);
-
-   return EXIT_SUCCESS;
 }

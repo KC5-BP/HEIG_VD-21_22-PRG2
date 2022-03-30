@@ -1,10 +1,11 @@
 /*
  -----------------------------------------------------------------------------------
- Nom du fichier : <nom du fichier>.<x> (x = h ou c)
- Auteur(s)      : K. BOUGNON-PEIGNE
+ Nom du fichier : 2.08-PtrArith_2.c
+ Auteur(s)      : (\_/)
  Date creation  : <jj.mm.aaaa>
 
- Description    : <� compl�ter>
+ Description    : 2.08
+                     Que va afficher le main ci-dessous ?
 
  Remarque(s)    : <� compl�ter>
 
@@ -16,6 +17,23 @@
 #include <stdlib.h>
 
 int main(void) {
-	// <code>
-	return EXIT_SUCCESS;
+   int t[6], i, *p;
+
+   for (p = &t[5]; p > &t[-1]; p--) // Filling BACKWARD << t >>
+      *p = (int) (p - t);
+
+   for (i = 0; i < 6; i++)          // Print the content ONWARD of << t >>
+      printf("%d ", t[i]);
+   printf("\n");
+
+   for (i = 0, ++p; i < 6; i++)     // Print the integer part of each pointed value
+      printf("%d ", *p++/2);        // divided by 2 of << p >>
+   printf("\n");                    // Detail(s) : We went to p > &t[-1], so to
+                                    // start over from &t[0], p need a increase
+                                    // before starting the loop.
+
+   return EXIT_SUCCESS;
 }
+// Output :
+// 0 1 2 3 4 5
+// 0 0 1 1 2 2

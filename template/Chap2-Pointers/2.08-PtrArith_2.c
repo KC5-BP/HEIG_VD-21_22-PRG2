@@ -1,10 +1,11 @@
 /*
  -----------------------------------------------------------------------------------
- Nom du fichier : <nom du fichier>.<x> (x = h ou c)
- Auteur(s)      : K. BOUGNON-PEIGNE
+ Nom du fichier : 2.08-PtrArith_2.c
+ Auteur(s)      : (\_/)
  Date creation  : <jj.mm.aaaa>
 
- Description    : <� compl�ter>
+ Description    : 2.08
+                     Que va afficher le main ci-dessous ?
 
  Remarque(s)    : <� compl�ter>
 
@@ -16,6 +17,18 @@
 #include <stdlib.h>
 
 int main(void) {
-	// <code>
-	return EXIT_SUCCESS;
+   int t[6], i, *p;
+
+   for (p = &t[5]; p > &t[-1]; p--)
+      *p = (int) (p - t);
+
+   for (i = 0; i < 6; i++)
+      printf("%d ", t[i]);
+   printf("\n");
+
+   for (i = 0, ++p; i < 6; i++)
+      printf("%d ", *p++/2);
+   printf("\n");
+
+   return EXIT_SUCCESS;
 }

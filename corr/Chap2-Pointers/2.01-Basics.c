@@ -20,6 +20,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
+
+#define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR "\n", (intptr_t) (ADR))
 
 int main() {
    // Var. dec. : ----------------------------------------------------------------->
@@ -27,9 +30,12 @@ int main() {
    int *ptr = &n;
 
    // Code : ---------------------------------------------------------------------->
+   PRINT_ADDRESS(ptr); // OR PRINT_ADDRESS(&n);
+   PRINT_ADDRESS(&ptr);
+
    printf("3) Valeur pointee  : %d\n", *ptr);
    printf("4) Address pointee (with ptr) : %p\n", (void*)ptr);
-   printf("   Validation      (with  n ) : %p\n", (void*)&n);
+   printf("   Validation      (with  n ) : %p\n", &n);   // (void*) cast unnecessary
    printf("5) Address pointer            : %p\n", (void*)&ptr);
 
    return EXIT_SUCCESS;

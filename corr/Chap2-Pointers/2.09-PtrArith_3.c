@@ -88,6 +88,5 @@ int main(void) {
                                                    **c,
                                                    e[0][0][e-d] + 1,
                                                    0[c][0] - 'd' + 'B');
-
    return EXIT_SUCCESS;
 }

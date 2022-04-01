@@ -15,37 +15,37 @@
  -----------------------------------------------------------------------------------
 */
 
+#include <float.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void recoverSquareCube_Array(double x, double Res[]) {
-   Res[0] = x * x;
-   Res[1] = Res[0] * x;
-}
+void carre_et_cube(double x, double* carre, double* cube);
+void test(double x);
 
-struct SQUARE_CUBE {
-   double square;
-   double cube;
-} x_Res;
-void recoverSquareCube_Struct(double x, struct SQUARE_CUBE* Res) {
-   Res->square = x * x;
-   Res->cube = Res->square * x;
-}
-
-int main() {
-   // Var. dec. : ----------------------------------------------------------------->
-   double x = 2;
-   double Res[2];
-
-   // Code : ---------------------------------------------------------------------->
-   recoverSquareCube_Array(x, &Res[0]);
-   printf("Though ARRAY :\n");
-   printf("x = %.2f | Square is %.2f | Cube is %.2f :\n", x, Res[0], Res[1]);
-
-   x = 5;
-   recoverSquareCube_Struct(x, &x_Res);
-   printf("Though STRUCT :\n");
-   printf("x = %.2f | Square is %.2f | Cube is %.2f :\n", x, x_Res.square, x_Res.cube);
+int main(void) {
+   test(-1);
+   test(0);
+   test(1);
+   test(2);
+   test(2.5);
+   test(DBL_MAX);
 
    return EXIT_SUCCESS;
 }
+
+void carre_et_cube(double x, double* carre, double* cube) {
+   *carre = x * x;
+   *cube = *carre * x;
+}
+
+void test(double x) {
+   double carre, cube;
+   carre_et_cube(x, &carre, &cube);
+   printf("carre(%g) = %g, cube(%g) = %g\n", x, carre, x, cube);
+}
+// carre(-1) = 1, cube(-1) = -1
+// carre(0) = 0, cube(0) = 0
+// carre(1) = 1, cube(1) = 1
+// carre(2) = 4, cube(2) = 8
+// carre(2.5) = 6.25, cube(2.5) = 15.625
+// carre(1.79769e+308) = inf, cube(1.79769e+308) = inf

@@ -38,6 +38,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+ * 1) Pointer     / Pointeurs
+ * 2) Array       / Tableau
+ * 3) Function    / Fonction
+ */
 int main(void) {
    {
       // 1) t est un tableau de 10 pointeurs pointant chacun sur un int constant
@@ -68,7 +73,7 @@ int main(void) {
    }
    {
       // 4) p est un pointeur constant sur un tableau de 10 pointeurs sur double
-      double* (* const p)[10];
+      double* (* const p)[10] /* = <initialisation> */; // 'Cause of the const p.
       // Dev. :
       //       (* const p) :  un pointeur constant
       //       double* (* const p)[10]

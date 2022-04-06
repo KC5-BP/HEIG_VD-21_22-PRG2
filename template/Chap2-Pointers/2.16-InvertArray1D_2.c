@@ -7,7 +7,7 @@
  Description    : 2.16
                      Implementer la fonction C dont le prototype et la semantique
                      sont donnes ci-suivi :
-void inverser(const int* debut, const int* fin);
+int* inverser(const int* debut, const int* fin);
 
                      Semantique :
                         Renvoie le contenu du tableau 1D défini par début et fin
@@ -24,7 +24,7 @@ void inverser(const int* debut, const int* fin);
 #include <stdlib.h>
 #include <assert.h>
 
-void inverser(const int* debut, const int* fin);
+int* inverser(const int* debut, const int* fin);
 void afficher(const int tab[], size_t taille);
 
 int main(void) {
@@ -32,7 +32,7 @@ int main(void) {
 	return EXIT_SUCCESS;
 }
 
-void inverser(const int* debut, const int* fin) {
+int* inverser(const int* debut, const int* fin) {
    assert(debut != fin);
 
 }

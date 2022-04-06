@@ -39,7 +39,7 @@ int main(void) {
    //       a double.
    // FR  : c est un pointeur sur une fonction a un parametre de type pointeur sur
    //       double et retournant un double.
-   // Developpement : 4
+   // Developpement : 1 -> 4 -> 2
 
    int* d[10];
    // ENG : d is an array of 10 addresses of int each
@@ -56,16 +56,21 @@ int main(void) {
    // FR  :
    // Developpement :   (*(*f[5])(void))  : est un tableau de 10 int : 3)
    //                   *(*f[5])(void)    : est un tableau de 10 int : 1)
-   //                   (*f[5])           : est un pointeur sur fonction sans
-   //                   parametre, retournant un tableau de 10 int : 4)
-   //                   *f[5]             : est un pointeur sur fonction sans
-   //                   parametre, retournant un tableau de 10 int : 1)
-   //                   *f                : est un tableau de 5 pointeurs sur
-   //                   fonction sans parametre, retournant un tableau de 10 int
-   //                   : 3)
-   //                   f                 : est un pointeur sur un tableau de 5
-   //                   pointeurs sur fonction sans parametre, retournant un
-   //                   tableau de 10 int : 2)
+   //                   (*f[5])(void)     : est un pointeur sur un tableau de 10 int
+   //                                     : 2)
+   //                   (*f[5])           : est une fonction sans parametre
+   //                                       retournant un pointeur sur un tableau de
+   //                                       10 int : 4)
+   //                   *f[5]             : est une fonction sans parametre
+   //                                       retournant un pointeur sur un tableau de
+   //                                       10 int : 1)
+   //                   f[5]              : est un pointeur sur une fonction sans
+   //                                       parametre, retournant un tableau de 10
+   //                                       int : 2)
+   //                   f                 : est un tableau de 5 pointeurs
+   //                                       pointant chacun sur une fonction sans
+   //                                       parametre retournant un pointeur sur
+   //                                       un tableau de 10 int : 1)
 
    double (**g)[5];
    // ENG :

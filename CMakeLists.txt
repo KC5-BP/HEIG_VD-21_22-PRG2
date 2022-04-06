@@ -9,3 +9,5 @@ add_subdirectory(corr/Chap2-Pointers)
 add_subdirectory(corr/Chap3-CompTypes)
 add_subdirectory(corr/Chap4-CharString)
 add_subdirectory(corr/Chap5-Files)
+
+add_subdirectory(archivesTEs)

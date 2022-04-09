@@ -27,40 +27,57 @@
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
 */
-
+#include <assert.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <assert.h>
 
-int* initialiser(size_t nbr_elements, int initValue);
-void afficher(const int* tab, size_t taille);
+int* initialiser_1(size_t taille, int valeur);
+int* initialiser_2(size_t taille, int valeur);
+void afficher(const int* ptr, size_t taille);
 
 int main(void) {
-	size_t SIZE = 10;
-   int INIT_VALUE = 5;
-
-   int* p = initialiser(SIZE, INIT_VALUE);
-   afficher(p, SIZE);
-   free(p);
-	return EXIT_SUCCESS;
+   {
+      const size_t TAILLE = 3;
+      int* p = initialiser_1(TAILLE, 1);
+      afficher(p, TAILLE); // Affiche [1, 1, 1]
+      free(p);
+   }
+   {
+      const size_t TAILLE = 5;
+      int* p = initialiser_2(TAILLE, 2);
+      afficher(p, TAILLE); // Affiche [2, 2, 2, 2, 2]
+      free(p);
+   }
+   return EXIT_SUCCESS;
 }
 
-int* initialiser(size_t nbr_elements, int initValue) {
-   assert(nbr_elements > 0);
-   int* p = (int*) calloc(nbr_elements, sizeof(int));
+int* initialiser_1(size_t taille, int valeur) {
+   assert(taille > 0);
+   int* p = (int*) calloc(taille, sizeof(int));
    if (p)
-      for (int* tmp = p; tmp < p + nbr_elements; *tmp++ = initValue);
+      for (int* tmp = p; tmp < p + taille; *tmp++ = valeur);
    return p;
 }
 
-void afficher(const int* tab, size_t taille) {
-   assert(tab != NULL);
+int* initialiser_2(size_t taille, int valeur) {
+   assert(taille > 0);
+   int* p = (int*) calloc(taille, sizeof(int));
+   if (p) {
+      const int* const FIN = p + taille;
+      for (; p < FIN; *p++ = valeur);
+      p -= taille;
+   }
+   return p;
+}
+
+void afficher(const int* ptr, size_t taille) {
+   assert(ptr != NULL);
    printf("[");
    for (size_t i = 0; i < taille; ++i) {
       if (i > 0)
          printf("%s", ", ");
-      printf("%d", tab[i]);
+      printf("%d", ptr[i]); // ou *(ptr + i)
    }
    printf("]\n");
 }

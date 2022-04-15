@@ -64,25 +64,26 @@ int main(void) {
    }
    {
       printf("%s", "Exo 2)\n");
-      printf("1) |%2d|\n", 173);
-      printf("2) |%-3X|\n", 173);
-      printf("3) |%#.5o|\n", 173);
+      printf("1) |%2d|\n", 173);       // |173|
+      printf("2) |%-3X|\n", 173);      // |AD |
+      printf("3) |%#.5o|\n", 173);     // |00255|
 
-      printf("4) |%f|\n", 0.2468);
-      printf("5) |%+4.1f|\n", 0.2468);
-      printf("6) |%.2e|\n", 0.2468);
-      printf("7) |%g|\n", 0.2468);
+      printf("4) |%f|\n", 0.2468);     // |0.246800|
+      printf("5) |%+4.1f|\n", 0.2468); // |+0.2|
+      printf("6) |%.2e|\n", 0.2468);   // |2.47*e-01|
+      printf("7) |%g|\n", 0.2468);     // |0.2468|
 
-      printf("8) |%#G|\n", .5E5);
-      printf("9) |%05.3g|\n", 12.345);
+      printf("8) |%#G|\n", .5E5);      // |50000.0|
+      printf("9) |%05.3g|\n", 12.345); // |012.3|
 
       // On suppose que l'utilisateur entre la chaine : "(012) 3456789 - SOS"
       #define TAILLE_MAX 50
       char chaine[TAILLE_MAX + 1] = "";
       printf("Entrer une chaine de caractere (%u caract max) > %s\n",
-                                                TAILLE_MAX, "(012) 3456789 - SOS");
-      //scanf("%*[()]%[0123456789]", chaine);
-      sscanf("(012) 3456789 - SOS", "%*[()]%[0123456789]", chaine);
+                                                TAILLE_MAX, "\" (012) 3456789 - "
+                                                            "SOS\"");
+      //scanf("%*[( )]%[0123456789]", chaine);
+      sscanf(" (012) 3456789 - SOS", "%*[( )]%[0123456789]", chaine);
       printf("10) |%s|\n", chaine);
       #undef TAILLE_MAX
       ENDL();

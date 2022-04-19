@@ -70,6 +70,7 @@
 
         return EXIT_SUCCESS;
     }
+    
     // Output :
     //1. 2      -> AFTER PT2 : 1. 2
     //2. 2      -> AFTER PT2 : 2. 2
@@ -111,6 +112,7 @@
 
         return EXIT_SUCCESS;
     }
+
     // Output :
     //1. 2
     //2. 2

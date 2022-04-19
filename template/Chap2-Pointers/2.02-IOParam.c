@@ -19,6 +19,6 @@
 #include <stdlib.h>
 
 int main(void) {
-	// <code>
-	return EXIT_SUCCESS;
+    // <code>
+    return EXIT_SUCCESS;
 }

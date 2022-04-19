@@ -19,33 +19,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void carre_et_cube(double x, double* carre, double* cube);
+void carre_et_cube(double x, double *carre, double *cube);
 void test(double x);
 
 int main(void) {
-   test(-1);
-   test(0);
-   test(1);
-   test(2);
-   test(2.5);
-   test(DBL_MAX);
+    test(-1);
+    test(0);
+    test(1);
+    test(2);
+    test(2.5);
+    test(DBL_MAX);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
-void carre_et_cube(double x, double* carre, double* cube) {
-   *carre = x * x;
-   *cube = *carre * x;
+void carre_et_cube(double x, double *carre, double *cube) {
+    *carre = x * x;
+    *cube = *carre * x;
 }
 
 void test(double x) {
-   double carre, cube;
-   carre_et_cube(x, &carre, &cube);
-   printf("carre(%g) = %g, cube(%g) = %g\n", x, carre, x, cube);
+    double carre, cube;
+    carre_et_cube(x, &carre, &cube);
+    printf("carre(%g) = %g, cube(%g) = %g\n", x, carre, x, cube);
 }
-// carre(-1) = 1, cube(-1) = -1
-// carre(0) = 0, cube(0) = 0
-// carre(1) = 1, cube(1) = 1
-// carre(2) = 4, cube(2) = 8
-// carre(2.5) = 6.25, cube(2.5) = 15.625
-// carre(1.79769e+308) = inf, cube(1.79769e+308) = inf
+
+// Ouput :
+//carre(-1) = 1, cube(-1) = -1
+//carre(0) = 0, cube(0) = 0
+//carre(1) = 1, cube(1) = 1
+//carre(2) = 4, cube(2) = 8
+//carre(2.5) = 6.25, cube(2.5) = 15.625
+//carre(1.79769e+308) = inf, cube(1.79769e+308) = inf

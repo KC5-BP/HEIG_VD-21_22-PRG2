@@ -3,7 +3,7 @@ project(PRG2-Exos)
 
 set(CMAKE_C_STANDARD 17)
 # Add -lm flag to include the math lib. to the compilation
-set(CMAKE_C_FLAGS "-Wall -Wextra -Wconversion -Wsign-conversion -pedantic -lm")
+set(CMAKE_C_FLAGS "-Wall -Wextra -Wconversion -Wsign-conversion -Wpedantic -lm")
 
 add_subdirectory(corr/Chap1-Intro)
 add_subdirectory(corr/Chap2-Pointers)

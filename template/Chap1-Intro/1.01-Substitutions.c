@@ -24,14 +24,11 @@
 int main(void) {
    int n = AB;
 
-   //printf("%<?>\n", n);
-   printf("%d\n", n);
+   ///printf("%<?>\n", n);
 
-   //printf("%<?>\n", "AB");
-   printf("%s\n", "AB");
+   ///printf("%<?>\n", "AB");
 
-   //printf("%<?>\n", F(A, B));
-   printf("%d\n", F(A, B));
+   ///printf("%<?>\n", F(A, B));
 
    return EXIT_SUCCESS;
 }

@@ -7,7 +7,10 @@
  Description    : Exo 1.1
                      Indiquer ce que va afficher le code suivant
 
- Remarque(s)    : <� compl�ter>
+ Remarque(s)    :   F will concatenate the X symbol with the Y's, to create
+                    the symbol XY.
+                    F being a macro, it will then be replace by the symbol XY.
+                    So if the symbol YX doesn't exist, there will be an error.
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
@@ -19,33 +22,25 @@
 #define A 1
 #define B 2
 #define AB 3
-#define F(X,Y) X##Y
-//  F will concatenate the X symbol with the Y's,
-//      to create the symbol XY.
-//          (See example below)
+#define F(X, Y) X##Y
 
 int main() {
-	// Code First : -------------------------------------------------------------------->
-	printf("Au diable \"Hello World !\" !!\n");
-	printf("Wait ...\n");
-	printf("God DAMMIT, MORTY !\n\n");
+    int n = AB;
 
-	// Code : -------------------------------------------------------------------------->
-	int n = AB;
+    //printf("%<?>\n", n);
+    printf("%d\n", n);
 
-	//printf("%<?>\n", n);
-	printf("%d\n", n);
-	//      Will print 3, car n = AB = 3
+    //printf("%<?>\n", "AB");
+    printf("%s\n", "AB");
 
-	//printf("%<?>\n", "AB");
-	printf("%s\n", "AB");
-	//      Will print AB
+    //printf("%<?>\n", F(A,B));
+    printf("%d\n", F(A, B));
 
-	//printf("%<?>\n", F(A,B));
-	printf("%d\n", F(A,B));
-	// F() will create the symbol AB,
-	//      that will be replaced by the value
-	//          of the defined symbol AB => So will print 3.
-
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
+
+// Outputs :
+//3     :   Because N = AB = 3.
+//AB    :   Because literally a string.
+//3     :   Because F() will create the symbol AB
+//          AB is a #define set as 3.

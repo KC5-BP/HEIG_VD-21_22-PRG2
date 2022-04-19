@@ -25,8 +25,8 @@ int main() {
 
     for (size_t i = 0; i < N; ++i)
         printf("%d ", ptr[i]);
-
     printf("\n");
+
     return EXIT_SUCCESS;
 }
 

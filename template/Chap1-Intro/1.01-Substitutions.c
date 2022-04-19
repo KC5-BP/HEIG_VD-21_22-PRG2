@@ -19,16 +19,16 @@
 #define A 1
 #define B 2
 #define AB 3
-#define F(X,Y) X##Y
+#define F(X, Y) X##Y
 
 int main(void) {
-   int n = AB;
+    int n = AB;
 
-   ///printf("%<?>\n", n);
+    ///printf("%<?>\n", n);
 
-   ///printf("%<?>\n", "AB");
+    ///printf("%<?>\n", "AB");
 
-   ///printf("%<?>\n", F(A, B));
+    ///printf("%<?>\n", F(A, B));
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

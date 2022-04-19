@@ -29,13 +29,13 @@ short lowestOrderSetBit(int n);
 short lowestOrderSetBit(int n);
 
 int main(void) {
-   int array[] = {0, 1, 2, 4, 8, 16, 32, 64, 5, 48};
-   for (int i = 0; i < sizeof(array) / sizeof(int); ++i)
-      printf("First bit set of %2d is at : %d\n", \
+    int array[] = {0, 1, 2, 4, 8, 16, 32, 64, 5, 48};
+    for (int i = 0; i < sizeof(array) / sizeof(int); ++i)
+        printf("First bit set of %2d is at : %d\n", \
                                     array[i], lowestOrderSetBit(array[i]));
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 short lowestOrderSetBit(int n) {
-   return (-1);
+    return (-1);
 }

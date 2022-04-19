@@ -27,40 +27,41 @@ short lowestOrderSetBit(int n);
 #include <stdlib.h>
 
 #define INT_BIT_SIZE sizeof(int) * 8
+
 short lowestOrderSetBit(int n);
 
 int main(void) {
-   int array[] = {0, 1, 2, 4, 8, 16, 32, 64, 5, 48};
-   for (int i = 0; i < sizeof(array) / sizeof(int); ++i)
-      printf("First bit set of %2d is at : %d\n", \
+    int array[] = {0, 1, 2, 4, 8, 16, 32, 64, 5, 48, 256};
+    for (int i = 0; i < sizeof(array) / sizeof(int); ++i)
+        printf("First bit set of %2d is at : %d\n", \
                                     array[i], lowestOrderSetBit(array[i]));
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 short lowestOrderSetBit(int n) {
-   short order;
-   if (n == 0) {
-      order = -1;
-   } else {
-      for (ushort pos = 0; pos < INT_BIT_SIZE; ++pos) {
-         // If current bit to 1
-         if (n >> pos & 1) { // OR n & 1 << pos
-            order = (short) pos;
-            break;
-         }
-      }
-   }
-   return order;
+    short order;
+    if (n == 0) {
+        order = -1;
+    } else {
+        for (ushort pos = 0; pos < INT_BIT_SIZE; ++pos) {
+            // If current bit to 1
+            if (n >> pos & 1) { // OR n & 1 << pos
+                order = (short) pos;
+                break;
+            }
+        }
+    }
+    return order;
 }
 
-/* My solution that I found way simpler -.-
+/* One solution that I found way simpler -.-
 short lowestOrderSetBit(int n) {
    if (n == 0) return (-1);
    short pos = 0;
    while ( !(n >> pos & 1) )  ++pos;
    return pos;
 }
-   Alternative to the teacher's (but still to my opinion) :
+ * Alternative to the teacher's (but still to my opinion) :
 short lowestOrderSetBit(int n) {
    short order = (-1);
    if (n != 0) {

@@ -12,7 +12,7 @@
                         4) Affiche a l'ecran l'adresse contenue dans ptr
                         5) Affiche l'adresse de ptr
 
- Remarque(s)    : <� compl�ter>
+ Remarque(s)    : French comment are from the teacher's correction.
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
@@ -25,18 +25,25 @@
 #define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR "\n", (intptr_t) (ADR))
 
 int main() {
-   // Var. dec. : ----------------------------------------------------------------->
-   int n = 1;
-   int *ptr = &n;
+    int n = 1;
+    int *ptr = &n;
 
-   // Code : ---------------------------------------------------------------------->
-   PRINT_ADDRESS(ptr); // OR PRINT_ADDRESS(&n);
-   PRINT_ADDRESS(&ptr);
+    // TEACHER'S SOLUTION ----------------------------------------------------------
+    printf("%d\n", *ptr);
+    PRINT_ADDRESS(ptr); // PRINT_ADDRESS(&n);
+    PRINT_ADDRESS(&ptr);
 
-   printf("3) Valeur pointee  : %d\n", *ptr);
-   printf("4) Address pointee (with ptr) : %p\n", (void*)ptr);
-   printf("   Validation      (with  n ) : %p\n", &n);   // (void*) cast unnecessary
-   printf("5) Address pointer            : %p\n", (void*)&ptr);
+    // Autres variantes (avec %p)
+    printf("%d\n", *ptr);
+    printf("%p\n", (void *) ptr);   // ou printf("%p", ptr);
+                                    // ou printf("%p", &n);
+    printf("%p\n", (void *) &ptr);  // ou printf("%p", &ptr);
 
-   return EXIT_SUCCESS;
+    // COMPLEMENT TO CONFIRM ADDRESSES BETWEEN PTR CONTENT AND N -------------------
+    printf("3) Valeur pointee  : %d\n", *ptr);
+    printf("4) Address pointee (with ptr) : %p\n", (void *) ptr);
+    printf("   Validation      (with  n ) : %p\n", (void *) &n);
+    printf("5) Address pointer            : %p\n", (void *) &ptr);
+
+    return EXIT_SUCCESS;
 }

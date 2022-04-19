@@ -28,23 +28,30 @@ int* setBit(unsigned short pos, unsigned short bitValue, int* n);
 #include <assert.h>
 
 #define INT_BIT_SIZE sizeof(int) * 8
-int* setBit(unsigned short pos, unsigned short bitValue, int* n);
+
+int *setBit(unsigned short pos, unsigned short bitValue, int *n);
 
 int main(void) {
-	int n = 0;
+    int n = 0;
 
-	setBit(2, 1, &n);   printf("%d\n", n);
-	setBit(8, 1, &n);   printf("%d\n", n);
-	setBit(0, 1, &n);   printf("%d\n", n);
-	// OR just :
-	printf("%d\n", *setBit(8, 0, &n));
+    setBit(2, 1, &n);   printf("%d\n", n);
+    setBit(8, 1, &n);   printf("%d\n", n);
+    setBit(0, 1, &n);   printf("%d\n", n);
+    // OR simply :
+    printf("%d\n", *setBit(8, 0, &n));
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
-int* setBit(unsigned short pos, unsigned short bitValue, int* n) {
-   assert(pos < INT_BIT_SIZE);
-   assert(bitValue <= 1);
-   *n ^= (-bitValue ^ *n) & (1 << pos);
-   return n;
+int *setBit(unsigned short pos, unsigned short bitValue, int *n) {
+    assert(pos < INT_BIT_SIZE);
+    assert(bitValue <= 1);
+    *n ^= (-bitValue ^ *n) & (1 << pos);
+    return n;
 }
+
+// Output :
+//4
+//260
+//261
+//5

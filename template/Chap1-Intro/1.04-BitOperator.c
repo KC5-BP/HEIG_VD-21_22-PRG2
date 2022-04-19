@@ -30,32 +30,32 @@
 #include <stdlib.h>
 
 int main() {
-	printf("1) %d\n", 22 | 11);
-	// After Exec. :
-	printf("2) %d\n", 0 ^ 19);
-	// After Exec. :
-	printf("3) %d\n", 2 << 3);
-	// After Exec. :
-	printf("4) %d\n", 30 & 14);
-	// After Exec. :
-	printf("5) %d\n", 8 >> 2);
-	// After Exec. :
-	printf("6) %d\n", 4 & 29);
-	// After Exec. :
-	printf("7) %d\n", 9 << 4);
-	// After Exec. :
-	printf("8) %d\n", 31 ^ 27);
-	// After Exec. :
-	printf("9) %d\n", 23 | 3);
-	// After Exec. :
-	printf("10) %d\n", -1 >> 1);
-	// After Exec. :
-	printf("11) %d\n", -5 >> 1);
-	// After Exec. :
-	printf("12) %d\n", 3 & ~2);
-	// After Exec. :
-	printf("13) %d\n", 6 | 5 & 4);
-	// After Exec. :
+    printf("1) %d\n", 22 | 11);
+    // After Exec. :
+    printf("2) %d\n", 0 ^ 19);
+    // After Exec. :
+    printf("3) %d\n", 2 << 3);
+    // After Exec. :
+    printf("4) %d\n", 30 & 14);
+    // After Exec. :
+    printf("5) %d\n", 8 >> 2);
+    // After Exec. :
+    printf("6) %d\n", 4 & 29);
+    // After Exec. :
+    printf("7) %d\n", 9 << 4);
+    // After Exec. :
+    printf("8) %d\n", 31 ^ 27);
+    // After Exec. :
+    printf("9) %d\n", 23 | 3);
+    // After Exec. :
+    printf("10) %d\n", -1 >> 1);
+    // After Exec. :
+    printf("11) %d\n", -5 >> 1);
+    // After Exec. :
+    printf("12) %d\n", 3 & ~2);
+    // After Exec. :
+    printf("13) %d\n", 6 | 5 & 4);
+    // After Exec. :
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

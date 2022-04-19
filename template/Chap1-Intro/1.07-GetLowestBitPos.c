@@ -19,7 +19,7 @@ short lowestOrderSetBit(int n);
 
  Remarque(s)    : <� compl�ter>
 
- Compilateur    : Mingw-w64 gcc 11.2.0
+ Compilateur    : Mingw-w64 gcc 11.2.0 
  -----------------------------------------------------------------------------------
 */
 

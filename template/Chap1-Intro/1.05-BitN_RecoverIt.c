@@ -37,5 +37,5 @@ int main(void) {
 }
 
 unsigned short getBit(unsigned short pos, int n) {
-    return 1;
+    return 0;
 }

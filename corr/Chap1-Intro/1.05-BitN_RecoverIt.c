@@ -41,7 +41,7 @@ int main(void) {
     for (unsigned short i = INT_BIT_SIZE - 1; i >= 0; --i) {
         printf("%d", getBit(i, ANALYSING_VALUE));
 
-        if ((i != 0) && ((i % 4) == 0))
+        if ( !(i % 4) )
             printf(" ");
 
         if (i == 0)

@@ -23,13 +23,13 @@
  * 4) Function    / Fonction
  */
 int main(void) {
-   char** a[10];
-   double* (*b)(void);
-   double (*c)(double*);
-   int* d[10];
-   int (*e)[10];
-   int (*(*f[5])(void))[10];
-   double (**g)[5];
+    char **a[10];
+    double *(*b)(void);
+    double (*c)(double *);
+    int *d[10];
+    int (*e)[10];
+    int (*(*f[5])(void))[10];
+    double (**g)[5];
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

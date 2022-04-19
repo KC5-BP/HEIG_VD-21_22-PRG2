@@ -54,18 +54,6 @@ short lowestOrderSetBit(int n) {
     return order;
 }
 
-// Output :
-//First bit set of   1 is at : 0
-//First bit set of   2 is at : 1
-//First bit set of   4 is at : 2
-//First bit set of   8 is at : 3
-//First bit set of  16 is at : 4
-//First bit set of  32 is at : 5
-//First bit set of  64 is at : 6
-//First bit set of   5 is at : 0
-//First bit set of  48 is at : 4
-//First bit set of 256 is at : 8
-
 /* One solution that I found way simpler -.-
 short lowestOrderSetBit(int n) {
    if (n == 0) return (-1);
@@ -88,3 +76,15 @@ short lowestOrderSetBit(int n) {
    return order;
 }
  */
+
+// Output :
+//First bit set of   1 is at : 0
+//First bit set of   2 is at : 1
+//First bit set of   4 is at : 2
+//First bit set of   8 is at : 3
+//First bit set of  16 is at : 4
+//First bit set of  32 is at : 5
+//First bit set of  64 is at : 6
+//First bit set of   5 is at : 0
+//First bit set of  48 is at : 4
+//First bit set of 256 is at : 8

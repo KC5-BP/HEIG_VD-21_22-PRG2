@@ -16,6 +16,9 @@
 #include <stdlib.h>
 
 int main(void) {
+    printf("To hell \"Hello World !\" !!\n");
+    printf("Wait ...\n");
+    printf("God DAMMIT, MORTY !\n\n");
 	// <code>
 	return EXIT_SUCCESS;
 }

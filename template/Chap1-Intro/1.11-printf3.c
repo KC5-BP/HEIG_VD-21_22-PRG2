@@ -25,7 +25,7 @@ int main(void) {
     size_t i = 1;
     uint32_t j = UINT32_MAX;
 
-    //<a completer>
+    // TODO
 
     return EXIT_SUCCESS;
 }

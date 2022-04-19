@@ -9,7 +9,7 @@
 
  Remarque(s)    :   F will concatenate the X symbol with the Y's, to create
                     the symbol XY.
-                    F being a macro, it will then be replace by the symbol XY.
+                    F being a macro, it will then be replaced by the symbol XY.
                     So if the symbol YX doesn't exist, there will be an error.
 
  Compilateur    : Mingw-w64 gcc 11.2.0

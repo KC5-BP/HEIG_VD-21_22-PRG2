@@ -20,22 +20,22 @@
 void clear_stdin(void);
 
 int main(void) {
-   int n; char c;
+    int n;  char c;
 
-   printf("%s", "Donnez un nombre entier et un caractere : ");
+    printf("%s", "Donnez un nombre entier et un caractere : ");
 
-   if (scanf("%d %c", &n, &c) == 2)
-      printf("n = %d, c = %c\n", n, c);
-   clear_stdin();
+    if (scanf("%d %c", &n, &c) == 2)
+        printf("n = %d, c = %c\n", n, c);
+    clear_stdin();
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 void clear_stdin(void) {
-   int c;
-   do {
-      c = getchar();
-   } while (c != '\n' && c != EOF);
+    int c;
+    do {
+        c = getchar();
+    } while (c != '\n' && c != EOF);
 }
 
 // Nota Bene : clear_stdin doesn't work if the buffer isn't initially empty.
@@ -45,3 +45,8 @@ void clear_stdin(void) {
    fseek(stdin, 0, SEEK_END);
 }
  */
+
+// Input :
+//Donnez un nombre entier et un caractere : 3 c
+// Output :
+//n = 3, c = c

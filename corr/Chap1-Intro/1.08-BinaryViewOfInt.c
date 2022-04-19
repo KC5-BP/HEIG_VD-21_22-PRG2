@@ -31,25 +31,25 @@ void display(const int8_t binary[], size_t size);
 void test(int32_t n);
 
 int main(void) {
-   printf("12345678901234567890123456789012\n");
-   printf("--------------------------------\n");
-   test(0);
-   test(1);
-   test(10);
-   test(-1);
-   test(INT32_MIN);
-   test(INT32_MAX);
+    printf("12345678901234567890123456789012\n");
+    printf("--------------------------------\n");
+    test(0);
+    test(1);
+    test(10);
+    test(-1);
+    test(INT32_MIN);
+    test(INT32_MAX);
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 void decimalToBinary(int32_t n, int8_t binary[]) {
-   for (int i = INT32_T_SIZE; i > 0; --i) {
-      binary[i - 1] = n & 1;
-      n >>= 1;
-   }
+    for (int i = INT32_T_SIZE; i > 0; --i) {
+        binary[i - 1] = n & 1;
+        n >>= 1;
+    }
 }
-// Alternativ (Teacher) :
+// Alternative (from Teacher too) :
 /*
 void decimalToBinary(int32_t n, int8_t binary[]) {
    for (int i = 0; i < INT32_T_SIZE; ++i)
@@ -58,19 +58,19 @@ void decimalToBinary(int32_t n, int8_t binary[]) {
  */
 
 void display(const int8_t binary[], size_t size) {
-   for (size_t i = 0; i < size; ++i)
-      printf("%d", binary[i]);   // OR printf("%" PRId8, binary[i])
-                                 // But replace <stdint.h> with <inttypes.h>
-   printf("\n");
+    for (size_t i = 0; i < size; ++i)
+        printf("%d", binary[i]);    // OR printf("%" PRId8, binary[i])
+                                    // But replace <stdint.h> with <inttypes.h>
+    printf("\n");
 }
 
 void test(int32_t n) {
-   int8_t binary[INT32_T_SIZE];
-   decimalToBinary(n, binary);
-   display(binary, INT32_T_SIZE);
+    int8_t binary[INT32_T_SIZE];
+    decimalToBinary(n, binary);
+    display(binary, INT32_T_SIZE);
 }
 
-// Outputs :
+// Output :
 //12345678901234567890123456789012
 //--------------------------------
 //00000000000000000000000000000000

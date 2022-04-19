@@ -27,7 +27,7 @@ void decimalToBinary(int32_t n, int8_t binary[]);
 
 int main(void) {
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 void decimalToBinary(int32_t n, int8_t binary[]) {

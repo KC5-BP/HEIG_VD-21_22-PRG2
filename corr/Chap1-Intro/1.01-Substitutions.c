@@ -39,7 +39,7 @@ int main() {
     return EXIT_SUCCESS;
 }
 
-// Outputs :
+// Output :
 //3     :   Because N = AB = 3.
 //AB    :   Because literally a string.
 //3     :   Because F() will create the symbol AB

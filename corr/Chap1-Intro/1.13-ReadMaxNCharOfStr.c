@@ -28,17 +28,17 @@
 void clear_stdin(void);
 
 int main(void) {
-   char nom[TAILLE_NOM + 1];
-   char format[10];
+    char nom[TAILLE_NOM + 1];
+    char format[10];
 
-   sprintf(format, " %%%d[^\n]", TAILLE_NOM);
-   printf("Entrez votre nom (%d caract. max) : ", TAILLE_NOM);
-   scanf(format, nom);
-   clear_stdin();
+    sprintf(format, " %%%d[^\n]", TAILLE_NOM);
+    printf("Entrez votre nom (%d caract. max) : ", TAILLE_NOM);
+    scanf(format, nom);
+    clear_stdin();
 
-   printf("Votre nom est \"%s\"\n", nom);
+    printf("Votre nom est \"%s\"\n", nom);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 /*
@@ -51,5 +51,10 @@ void clear_stdin(void) {
  */
 
 void clear_stdin(void) {
-   fseek(stdin, 0, SEEK_END);
+    fseek(stdin, 0, SEEK_END);
 }
+
+// Input :
+//Entrez votre nom (20 caract. max) : Name with more than 20 letters and spaces
+// Output :
+//Votre nom est "Name with more than "

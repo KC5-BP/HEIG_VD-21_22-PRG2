@@ -31,26 +31,29 @@ unsigned short getBit(unsigned short pos, int n);
 #include <assert.h>
 
 #define INT_BIT_SIZE sizeof(int) * 8
+
 unsigned short getBit(unsigned short pos, int n);
 
 int main(void) {
-	const int ENTIER_A_ANALYSER = 5;
+    const int ANALYSING_VALUE = 5;
 
-	printf("%d => 0b", ENTIER_A_ANALYSER);
-	for(unsigned short i = INT_BIT_SIZE-1; i >= 0; --i) {
-		printf("%d", getBit(i, ENTIER_A_ANALYSER));
+    printf("%d => 0b", ANALYSING_VALUE);
+    for (unsigned short i = INT_BIT_SIZE - 1; i >= 0; --i) {
+        printf("%d", getBit(i, ANALYSING_VALUE));
 
-		if( (i != 0) && ((i % 4) == 0) )
-			printf(" ");
+        if ((i != 0) && ((i % 4) == 0))
+            printf(" ");
 
-		if(i == 0)
-			break;
-	}
-
-	return EXIT_SUCCESS;
+        if (i == 0)
+            break;
+    }
+    return EXIT_SUCCESS;
 }
 
 unsigned short getBit(unsigned short pos, int n) {
-   assert(pos < INT_BIT_SIZE);
-   return n >> pos & 1;
+    assert(pos < INT_BIT_SIZE);
+    return n >> pos & 1;
 }
+
+// Output :
+//5 => 0b0000 0000 0000 0000 0000 0000 0000 0101

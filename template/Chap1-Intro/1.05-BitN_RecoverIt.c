@@ -33,9 +33,9 @@ unsigned short getBit(unsigned short pos, int n);
 
 int main(void) {
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 unsigned short getBit(unsigned short pos, int n) {
-   return 1;
+    return 1;
 }

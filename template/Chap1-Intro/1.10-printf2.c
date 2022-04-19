@@ -25,16 +25,16 @@
 #include <stdlib.h>
 
 int main(void) {
-	int n = 255;
-	double d = 12.345;
+    int n = 255;
+    double d = 12.345;
 
-   // <A COMPLETER>
-   printf("%\n", n);
-   printf("%\n", n);
-   printf("%\n", n);
-   printf("%\n", d);
-   printf("%\n", d);
-   printf("%\n", d);
+    // TODO
+    printf("%\n", n);
+    printf("%\n", n);
+    printf("%\n", n);
+    printf("%\n", d);
+    printf("%\n", d);
+    printf("%\n", d);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

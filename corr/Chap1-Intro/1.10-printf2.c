@@ -25,17 +25,25 @@
 #include <stdlib.h>
 
 int main(void) {
-	int n = 255;
-	double d = 12.345;
+    int n = 255;
+    double d = 12.345;
 
-   printf("%#o\n", n);
-	printf("%X\n", n);		// %x : lowercase | %X : UPPERCASE
-	printf("+###%d\n", n);  // OR printf("+%s%d", "%%%", n);
-                           // OR printf("%s%d", "+%%%", n);
-	printf("%.3e\n", d);
-	printf("%g\n", d);      // OR printf("%.3f\n", d);
-                           // %g set the best representation to the value.
-	printf("%#g\n", d);     // OR printf("%.4f\n", d);
+    printf("%#o\n", n);
+    printf("%X\n", n);      // %x : lowercase | %X : UPPERCASE
+    printf("+###%d\n", n);  // OR printf("+%s%d", "%%%", n);
+                            // OR printf("%s%d", "+%%%", n);
+    printf("%.3e\n", d);
+    printf("%g\n", d);      // OR printf("%.3f\n", d);
+                            // %g set the best representation to the value.
+    printf("%#g\n", d);     // OR printf("%.4f\n", d);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
+
+// Output :
+//0377
+//FF
+//+###255
+//1.235e+01
+//12.345
+//12.3450

@@ -36,5 +36,6 @@ int main(void) {
     printf("7) %d\n", *pp[1]);
     pp = p;
     printf("8) %" PRIdPTR "\n", (ptrdiff_t) (*(p + 1) - *pp));
+
     return EXIT_SUCCESS;
 }

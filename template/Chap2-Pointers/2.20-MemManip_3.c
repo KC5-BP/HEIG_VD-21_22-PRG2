@@ -18,8 +18,8 @@
 #include <string.h>
 
 int main(void) {
-   char str[] = "memmove est tres utile......";
-   memmove(str + 17, str + 12, 10);
-   printf("%s\n", str);
-   return EXIT_SUCCESS;
+    char str[] = "memmove est tres utile......";
+    memmove(str + 17, str + 12, 10);
+    printf("%s\n", str);
+    return EXIT_SUCCESS;
 }

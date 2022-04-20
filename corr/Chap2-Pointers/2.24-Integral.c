@@ -42,35 +42,36 @@
 /* Fonction à intégrer */
 double f(double x);
 /* Calcul d'une intégrale par la méthode des trapèzes */
-double integrale(double (*f)(double), double a, double b, unsigned nbPas);
+double integrale(double (* f)(double), double a, double b, unsigned nbPas);
 
 int main(void) {
-   printf("integrale de exp(-x*x) entre 0 et infini = %g\n",
-          integrale(f, 0, 20, 1000));
+    printf("integrale de exp(-x*x) entre 0 et infini = %g\n",
+           integrale(f, 0, 20, 1000));
 
-   printf("integrale de sin(x) entre 0 et pi/2 = %g\n",
-          integrale(sin, 0, PI/2, 1000));
+    printf("integrale de sin(x) entre 0 et pi/2 = %g\n",
+           integrale(sin, 0, PI / 2, 1000));
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 double f(double x) {
-   return exp(-x*x);
+    return exp(-x * x);
 }
 
-double integrale(double (*f)(double), double a, double b, unsigned nbPas) {
-   assert(f != NULL);
-   assert(a < b);
-   assert(nbPas > 0);
-   const double PAS = (b - a) / nbPas; // pas d'intégration
-   double x = a;
-   double surface = 0.0;
+double integrale(double (* f)(double), double a, double b, unsigned nbPas) {
+    assert(f != NULL);
+    assert(a < b);
+    assert(nbPas > 0);
+    const double PAS = (b - a) / nbPas; // pas d'intégration
+    double x = a;
+    double surface = 0.0;
 
-   for (unsigned i = 0; i < nbPas; ++i, x += PAS)
-      surface += 0.5 * PAS * (f(x) + f(x + PAS));
+    for (unsigned i = 0; i < nbPas; ++i, x += PAS)
+        surface += 0.5 * PAS * (f(x) + f(x + PAS));
 
-   return surface;
+    return surface;
 }
-// Outputs
-// integrale de exp(-x*x) entre 0 et infini = 0.886227
-// integrale de sin(x) entre 0 et pi/2 = 1
+
+// Output :
+//integrale de exp(-x*x) entre 0 et infini = 0.886227
+//integrale de sin(x) entre 0 et pi/2 = 1

@@ -7,7 +7,17 @@
  Description    : 2.08
                      Que va afficher le main ci-dessous ?
 
- Remarque(s)    : <� compl�ter>
+ Remarque(s)    : Memory view
+                  (or simply look into Corr-2.06_to_2.09_2.12_2.14.pdf)
+                      -1    0     1     2     3     4     5
+                    .---. .---. .---. .---. .---. .---. .---.
+                    |   | |   | |   | |   | |   | |   | |   |
+                    '---' '---' '---' '---' '---' '---' '---'
+                            ^                             ^
+                          .-|-.                         .-|-.
+                          | ° |                         | ° |
+                          '---'                         '---'
+                            t                             p
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------

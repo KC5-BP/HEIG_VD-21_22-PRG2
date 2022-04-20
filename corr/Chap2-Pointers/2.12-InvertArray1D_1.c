@@ -29,49 +29,50 @@ void afficher(const int tab[], size_t taille);
 void test(int tab[], size_t taille);
 
 int main(void) {
-   {
-      int tab[] = {1};
-      test(tab, sizeof(tab) / sizeof(int));
-   }
-   {
-      int tab[] = {1, 2};
-      test(tab, sizeof(tab) / sizeof(int));
-   }
-   {
-      test((int[]){1, 2, 3}, 3); // Autre manière de procéder
-   }
-   return EXIT_SUCCESS;
+    {
+        int tab[] = {1};
+        test(tab, sizeof(tab) / sizeof(int));
+    }
+    {
+        int tab[] = {1, 2};
+        test(tab, sizeof(tab) / sizeof(int));
+    }
+    {
+        test((int[]) {1, 2, 3}, 3); // Autre manière de procéder
+    }
+    return EXIT_SUCCESS;
 }
 
 void inverser(int* debut, int* fin) {
-   assert(debut != NULL);
-   assert(fin != NULL);
-   while (debut < fin) {
-      int tampon = *debut;
-      *debut++ = *fin;
-      *fin-- = tampon;
-   }
+    assert(debut != NULL);
+    assert(fin != NULL);
+    while (debut < fin) {
+        int tampon = *debut;
+        *debut++ = *fin;
+        *fin-- = tampon;
+    }
 }
 
 void afficher(const int tab[], size_t taille) {
-   assert(tab != NULL);
-   printf("[");
-   for (size_t i = 0; i < taille; ++i) {
-      if (i > 0)
-         printf("%s", ", ");
-      printf("%d", tab[i]);
-   }
-   printf("]\n");
+    assert(tab != NULL);
+    printf("[");
+    for (size_t i = 0; i < taille; ++i) {
+        if (i > 0)
+            printf("%s", ", ");
+        printf("%d", tab[i]);
+    }
+    printf("]\n");
 }
 
 void test(int tab[], size_t taille) {
-   printf("Avant inverser : \n");
-   afficher(tab, taille);
-   inverser(tab, tab + taille - 1);
-   printf("Apres inverser : \n");
-   afficher(tab, taille);
+    printf("Avant inverser : \n");
+    afficher(tab, taille);
+    inverser(tab, tab + taille - 1);
+    printf("Apres inverser : \n");
+    afficher(tab, taille);
 }
-// Outputs
+
+// Output :
 //Avant inverser :
 //[1]
 //Apres inverser :

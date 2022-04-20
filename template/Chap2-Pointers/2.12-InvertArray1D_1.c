@@ -28,22 +28,22 @@ void inverser(int* debut, int* fin);
 void afficher(const int tab[], size_t taille);
 
 int main(void) {
-	// <code>
-	return EXIT_SUCCESS;
+    // <code>
+    return EXIT_SUCCESS;
 }
 
 void inverser(int* debut, int* fin) {
-   assert(debut != fin);
+    assert(debut != fin);
 
 }
 
 void afficher(const int tab[], size_t taille) {
-   assert(tab != NULL);
-   printf("[");
-   for (size_t i = 0; i < taille; ++i) {
-      if (i > 0)
-         printf("%s", ", ");
-      printf("%d", tab[i]);
-   }
-   printf("]\n");
+    assert(tab != NULL);
+    printf("[");
+    for (size_t i = 0; i < taille; ++i) {
+        if (i > 0)
+            printf("%s", ", ");
+        printf("%d", tab[i]);
+    }
+    printf("]\n");
 }

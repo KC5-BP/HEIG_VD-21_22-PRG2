@@ -11,7 +11,14 @@
                      Ecrire aussi un petit programme de test permettant de
                      vérifier le bon fonctionnement de votre fonction.
 
-                     TODO Add result view for a better understanding.
+                               / 1 1 1 \
+                     M(3x3) = |  1 0 1  |
+                               \ 1 1 1 /
+
+                               / 1 1 1 1 \
+                              |  1 0 0 1  |
+                     M(4x4) = |  1 0 0 1  |
+                               \ 1 1 1 1 /
 
  Remarque(s)    : <� compl�ter>
 
@@ -23,6 +30,6 @@
 #include <stdlib.h>
 
 int main(void) {
-	// <code>
-	return EXIT_SUCCESS;
+    // <code>
+    return EXIT_SUCCESS;
 }

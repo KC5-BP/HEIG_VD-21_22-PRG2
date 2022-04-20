@@ -33,28 +33,31 @@
 void afficher(const int* adr, size_t n);
 
 int main(void) {
-   int tab1[] = {1, 2, 3};
-   const size_t SIZE = sizeof(tab1) / sizeof(int);
+    int tab1[] = {1, 2, 3};
+    const size_t SIZE = sizeof(tab1) / sizeof(int);
 
-   afficher(tab1, SIZE);
+    afficher(tab1, SIZE);
+    int* tab2 = (int*) calloc(SIZE, sizeof(int));
+    if (tab2) {
+        memcpy(tab2, tab1, sizeof(tab1));
+        afficher(tab2, SIZE);
+        free(tab2);
+    }
 
-   int* tab2 = (int*) calloc(SIZE, sizeof(int));
-   if (tab2) {
-      memcpy(tab2, tab1, sizeof(tab1));
-      afficher(tab2, SIZE);
-      free(tab2);
-   }
-
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 void afficher(const int* adr, size_t n) {
-   assert(adr != NULL);
-   printf("[");
-   for (size_t i = 0; i < n; ++i) {
-      if (i > 0)
-         printf(", ");
-      printf("%d", *(adr + i));
-   }
-   printf("]\n");
+    assert(adr != NULL);
+    printf("[");
+    for (size_t i = 0; i < n; ++i) {
+        if (i > 0)
+            printf(", ");
+        printf("%d", *(adr + i));
+    }
+    printf("]\n");
 }
+
+// Output :
+//[1, 2, 3]
+//[1, 2, 3]

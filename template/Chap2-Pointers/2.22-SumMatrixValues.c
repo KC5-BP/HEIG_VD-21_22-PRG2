@@ -21,19 +21,19 @@
  -----------------------------------------------------------------------------------
 */
 
-#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 int main(void) {
-   #define NB_LIGNES 3
-   #define NB_COLONNES 3
+    #define NB_LIGNES 3
+    #define NB_COLONNES 3
 
-   const double M[NB_LIGNES][NB_COLONNES] = {   { 1, 2, 3},
-                                                { 4, 5, 6},
-                                                { 7, 8, 9}  };
+    const double M[NB_LIGNES][NB_COLONNES] = {{1, 2, 3},
+                                              {4, 5, 6},
+                                              {7, 8, 9}};
 
-   // CODE HERE
+    // CODE HERE
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

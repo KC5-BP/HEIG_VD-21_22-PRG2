@@ -21,39 +21,54 @@
 #include <stdlib.h>
 
 int main(void) {
-   // Var. dec. : ----------------------------------------------------------------->
-   int i = 1, j = 2;
+    // Var. dec. : ----------------------------------------------------------------->
+    int i = 1, j = 2;
 
-   int* pi1 = &i;
-   int* pi2 = &j;
+    int* pi1 = &i;
+    int* pi2 = &j;
 
-   double x = 3.0;
-   double* pd = &x;
+    double x = 3.0;
+    double* pd = &x;
 
-   void* pv;
+    void* pv;
 
-   // Code : ---------------------------------------------------------------------->
-   // 1)
-   pi1 = pi2;  // pi1 points the same content as pi2
-               // No problem here
-   // 2)
-   pd = pi1;   // pd points the same content as pi1
-               // There will be a cast problem of an int* to double*
-   // 3)
-   pi1 = pd;   // pi1 points the same content as pd
-               // There will be a cast problem of a double* to int*
-   // 4)
-   pv = pi1;   // pv points the same content as pi1
-               // But the void* can't be use as so, it will need to be cast before
-   // 5)
-   pv = &i;    // pv points on i's address
-               // Same issue as before
-   // 6)
-   pv = pi1;   // pv points the same content as pi1
-   pi2 = pv;   // pi2 points the same content as pv
-               // The content of pi2 will be unsure
-   // 7)
-   if (pi1 = pi2) ;  // Check if pi1 pointed address is equal to
-                     // pi2 pointed address.
-   return EXIT_SUCCESS;
+    // Code : ---------------------------------------------------------------------->
+    // 1) OK
+    pi1 = pi2;
+    //    pi1 points on the same integer as pi2
+
+    // 2) WARNING : Assignment from incompatible pointer type (int* to double*)
+    pd = pi1;
+    //    But could write : pd = (double*) pi1;
+
+    // 3) WARNING : Assignment from incompatible pointer type (double* to int*)
+    pi1 = pd;
+    //    But could write : pi1 = (int*) pd;
+    //    Be aware that pt2 & 3 can lead to unexpected results when dereferencing.
+    //    Ex. : printf("%d\n", *pi1); will not display 3.
+
+    // 4) OK
+    pv = pi1;
+    //    pv contains now the address contained by pi1.
+    //    But be careful : this address can't be used like so.
+    //    For instance, after the assignation you write
+    //      printf("%d\n", *pv); it will lead to a compilation error.
+    //    But we could write : printf("%d\n", *((int*)pv));
+
+    // 5) OK
+    pv = &i;
+    //    Same thoughts as 4)
+
+    // 6) OK
+    pv = pi1;
+    pi2 = pv;
+    //    In C (but not in C++), a void pointer can't be implicitly
+    //    converted into another type.
+
+    // 7) OK
+    if (pi1 = pi2);
+    //    Make pi1 points on the same address as pi2.
+    //    Condition true if pi2 is not equal to NULL.
+
+    return EXIT_SUCCESS;
 }

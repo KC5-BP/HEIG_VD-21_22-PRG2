@@ -70,7 +70,6 @@ int main(void) {
 
     return EXIT_SUCCESS;
 }
-
 // Output :
 //1) 10
 //2) 10

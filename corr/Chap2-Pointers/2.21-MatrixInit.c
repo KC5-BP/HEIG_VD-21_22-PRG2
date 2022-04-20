@@ -45,6 +45,7 @@ int main(void) {
     int t4[3][4];
     int t5[3][4];
     int t6[3][4];
+    
 
     initialiser_1((int*) t1, 3, 3);  // ou t1[0] ou &t1[0][0]
     initialiser_2((int*) t2, 3, 3);

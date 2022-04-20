@@ -12,7 +12,7 @@
                         [1, 1, 1]
                         [2, 2, 2]
 
- Remarque(s)    : <� compl�ter>
+ Remarque(s)    : "afficher" function from 2.18 to check the output
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
@@ -21,28 +21,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 #define SIZE 3
 
-void afficher ... // Le code de la fonction afficher a volontairement été omis ici
+void afficher(const int* adr, size_t n) {
+    assert(adr != NULL);
+    printf("[");
+    for (size_t i = 0; i < n; ++i) {
+        if (i > 0)
+            printf(", ");
+        printf("%d", *(adr + i));
+    }
+    printf("]\n");
+}
 
 int main(void) {
-   int tab[SIZE] = {0};
+    int tab[SIZE] = {0};
 
-   afficher(tab, SIZE);
+    afficher(tab, SIZE);
 
-   for (size_t i = 0; i < SIZE; ++i)
-      tab[i]++;
+    for (size_t i = 0; i < SIZE; ++i)
+        tab[i]++;
 
-   afficher(tab, SIZE);
+    afficher(tab, SIZE);
 
-   memset(tab, 0, SIZE * sizeof(int));
-   // OR memset(tab, 0, sizeof(tab));
+    memset(tab, 0, SIZE * sizeof(int));
+    // OR memset(tab, 0, sizeof(tab));
 
-   for (size_t i = 0; i < SIZE; ++i)
-      tab[i] += 2;
+    for (size_t i = 0; i < SIZE; ++i)
+        tab[i] += 2;
 
-   afficher(tab, SIZE);
+    afficher(tab, SIZE);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
+
+// Output :
+//[0, 0, 0]
+//[1, 1, 1]
+//[2, 2, 2]

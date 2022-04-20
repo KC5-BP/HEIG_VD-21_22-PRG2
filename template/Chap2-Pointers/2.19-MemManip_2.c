@@ -27,21 +27,21 @@
 void afficher ... // Le code de la fonction afficher a volontairement été omis ici
 
 int main(void) {
-   int tab[SIZE] = {0};
+    int tab[SIZE] = {0};
 
-   afficher(tab, SIZE);
+    afficher(tab, SIZE);
 
-   for (size_t i = 0; i < SIZE; ++i)
-      tab[i]++;
+    for (size_t i = 0; i < SIZE; ++i)
+        tab[i]++;
 
-   afficher(tab, SIZE);
+    afficher(tab, SIZE);
 
-   // TODO <à compléter>
+    // TODO <à compléter>
 
-   for (size_t i = 0; i < SIZE; ++i)
-      tab[i] += 2;
+    for (size_t i = 0; i < SIZE; ++i)
+        tab[i] += 2;
 
-   afficher(tab, SIZE);
+    afficher(tab, SIZE);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

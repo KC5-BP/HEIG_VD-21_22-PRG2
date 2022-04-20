@@ -34,10 +34,10 @@
 int* initialiser(size_t nbr_elements, int initValue);
 
 int main(void) {
-	// <code>
-	return EXIT_SUCCESS;
+    // <code>
+    return EXIT_SUCCESS;
 }
 
 int* initialiser(size_t nbr_elements, int initValue) {
-   return NULL;
+    return NULL;
 }

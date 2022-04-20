@@ -43,6 +43,7 @@ int main(void) {
         afficher(tab2, SIZE);
         free(tab2);
     }
+    
     return EXIT_SUCCESS;
 }
 

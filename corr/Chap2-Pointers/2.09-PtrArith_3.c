@@ -18,8 +18,9 @@
                         j) 0[c][0] - 'd' + 'B'
                      Selon les declarations du code ..
 
- Remarque(s)    : Results of i & j should be in integer because of the numerical
-                  promotion while operating with
+ Remarque(s)    : Results of i & j should be an integer because of the numerical
+                  promotion while working with the '+' / '-' operators.
+                  For Memory view, look into Corr-2.06_to_2.09_2.12_2.14.pdf
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------

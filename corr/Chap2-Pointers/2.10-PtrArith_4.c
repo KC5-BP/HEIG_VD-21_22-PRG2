@@ -17,46 +17,48 @@
 #include <stdlib.h>
 
 int main(void) {
-   const char* c[] = {"comprendre", "les", "pointeurs", "c\'est", "difficile"};
-   const char** cp[] = {c, c + 2, c + 4, c + 1, c + 3};
-   const char*** cpp = cp;
-   int i;
+    const char* c[] = {"comprendre", "les", "pointeurs", "c\'est", "difficile"};
+    const char** cp[] = {c, c + 2, c + 4, c + 1, c + 3};
+    const char*** cpp = cp;
+    int i;
 
-   for (i = 0; i < 3; i++)
-      printf("%c", *(**cpp + i));   // 'c' 'o' 'm'
+    for (i = 0; i < 3; i++)
+        printf("%c", *(**cpp + i));
                                     // *cpp => c
                                     // **cpp => "comprendre"
                                     // *(**cpp + 0) => 'c'
-   printf("%c", *(*cp[0] + 2));     // 'm'
+                                    // *(**cpp + 1) => 'o'
+                                    // *(**cpp + 2) => 'm'
+    printf("%c", *(*cp[0] + 2));
                                     // *cp[0] => "comprendre"
                                     // *cp[0] + 2 => "mprendre"
                                     // *(*cp[0] + 2) => 'm'
-   printf("%s ", *cpp[2] + 8);      // "e "
+    printf("%s ", *cpp[2] + 8);
                                     // cpp[2] => c + 4
                                     // *cpp[2] => "difficile"
-                                    // *cpp[2] + 8 => "e"
-   printf("%s ", *++*++cpp);        // "c\'est "
+                                    // *cpp[2] + 8 => "e" => "%s " => "e "
+    printf("%s ", *++*++cpp);
                                     // a) ++cpp => cp + 1 <=> &cp[1]
                                     // *++cpp => c + 2
                                     // c) ++*++cpp => ++(c + 2) => c + 3
-                                    // *(c + 3) => "c\'est"
+                                    // *(c + 3) => "c\'est"  => "%s " => "c\'est "
                                     //
                                     // ! IMPORTANT !
                                     // During step a), cpp now point on
                                     //                         cp + 1 <=> &cp[1]
                                     // During step c), cp[1] now point on
                                     // c + 3 <=> &c[3]
-   for (i = 1; i < 4; i++)
-      printf("%c", *(cpp[-1][i % 3] + 2));   // 's' 'i' 'm'
-                                             // cpp[-1] <=> cp[0] => c
-                                             // cpp[-1][i % 3] => c[i % 3] =>
-                                             //    i = 1 : "les" => *(... +2)
-                                             //                            => 's'
-                                             //    i = 2 : "pointeurs" => *( +2)
-                                             //                            => 'i'
-                                             //    i = 3 : "comprendre" => *(+2)
-                                             //                            => 'm'
-   printf("%c", **--*cpp);          // 'p'
+    for (i = 1; i < 4; i++)
+        printf("%c", *(cpp[-1][i % 3] + 2));
+                                    // cpp[-1] <=> cp[0] => c
+                                    // cpp[-1][i % 3] => c[i % 3] =>
+                                    //    i = 1 : "les" => *(... +2)
+                                    //                            => 's'
+                                    //    i = 2 : "pointeurs" => *(... +2)
+                                    //                            => 'i'
+                                    //    i = 3 : "comprendre" => *(... +2)
+                                    //                            => 'm'
+    printf("%c", **--*cpp);
                                     // *cpp => c + 3
                                     // i) --*cpp => (c + 3) => c + 2
                                     // *--*cpp => "pointeurs"
@@ -65,7 +67,7 @@ int main(void) {
                                     // ! IMPORTANT !
                                     // During step i), cp[1] now point on
                                     // c + 2 <=> &c[2] again
-   printf("%s\n", **++cpp + 7);     // "le"
+    printf("%s\n", **++cpp + 7);
                                     // l) ++cpp => cp + 2 <=> &cp[2]
                                     // *++cpp => c + 4
                                     // **++cpp => "difficile"
@@ -74,8 +76,8 @@ int main(void) {
                                     // ! IMPORTANT !
                                     // During step l), cpp now point on
                                     //                         cp + 2 <=> &cp[2]
-
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
-// Output
-// comme c'est simple
+
+// Output :
+//comme c'est simple

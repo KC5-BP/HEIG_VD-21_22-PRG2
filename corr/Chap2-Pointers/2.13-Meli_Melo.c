@@ -32,3 +32,7 @@ int main(void) {
 
    return EXIT_SUCCESS;
 }
+
+// Output :
+//Process finished with exit code 139 (interrupted by signal 11: SIGSEGV)
+//Caused while printing ...

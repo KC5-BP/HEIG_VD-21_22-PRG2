@@ -20,63 +20,66 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
-#define FN_DECLARATION_SELECTED 0
-
+#define FN_DECLARATION_SELECTED 2
 #define TAB_SIZE 10
 
 void initialiser(int* tab, unsigned int tabSize, int initValue);
 void printArray(int* tab, unsigned int tabSize);
 
 int main(void) {
-   //int tab[TAB_SIZE];    // Don't work with memset without : = {};
-   int tab[TAB_SIZE] = {};
+    //int tab[TAB_SIZE];    // Don't work with memset without : = {};
+    int tab[TAB_SIZE] = {};
 
-   initialiser(tab, TAB_SIZE, 0);
-   printArray(tab, TAB_SIZE);
+    initialiser(tab, TAB_SIZE, 0);
+    printArray(tab, TAB_SIZE);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
-#if FN_DECLARATION_SELECTED == 0
-void initialiser(int* tab, unsigned int tabSize, int initValue) {
-   if(tabSize)
-      for (unsigned int i = 0; i < tabSize; ++i)
-         tab[i] = initValue;
-}
+
+#if FN_DECLARATION_SELECTED < 1
+    void initialiser(int* tab, unsigned int tabSize, int initValue) {
+        assert(tab != NULL && tabSize > 0);
+        for (unsigned int i = 0; i < tabSize; ++i)
+            tab[i] = initValue;
+    }
+
 #elif FN_DECLARATION_SELECTED == 1
-void initialiser(int* tab, unsigned int tabSize, int initValue) {
-   if(tabSize)
-      for (int* p = tab + tabSize - 1; p > &tab[-1]; --p)
-         *p = initValue;
-}
+    void initialiser(int* tab, unsigned int tabSize, int initValue) {
+        assert(tab != NULL && tabSize > 0);
+        for (int* p = tab + tabSize - 1; p > &tab[-1]; --p)
+            *p = initValue;
+    }
+
 #elif FN_DECLARATION_SELECTED == 2
 #include <string.h>
-void initialiser(int* tab, unsigned int tabSize, int initValue) {
-   memset(tab, initValue, tabSize);
-}
+    void initialiser(int* tab, unsigned int tabSize, int initValue) {
+        assert(tab != NULL && tabSize > 0);
+        for(int* ptr = tab; ptr != tab + tabSize; ++ptr)
+            memcpy(ptr, &initValue, sizeof(initValue));
+    }
+
 #elif FN_DECLARATION_SELECTED == 3
-void initialiser(int* tab, unsigned int tabSize, int initValue) {
-    if( tabSize ) {
-
+    void initialiser(int* tab, unsigned int tabSize, int initValue) {
+        assert(tab != NULL && tabSize > 0);
     }
-}
+
 #elif FN_DECLARATION_SELECTED == 4
-void initialiser(int* tab, unsigned int tabSize, int initValue) {
-    if(tabSize != 0) {
-
+    void initialiser(int* tab, unsigned int tabSize, int initValue) {
+        assert(tab != NULL && tabSize > 0);
     }
-}
-#elif FN_DECLARATION_SELECTED == 5
-void initialiser(int* tab, unsigned int tabSize, int initValue) {
-    if(tabSize != 0) {
 
+#elif FN_DECLARATION_SELECTED > 4
+    void initialiser(int* tab, unsigned int tabSize, int initValue) {
+        assert(tab != NULL && tabSize > 0);
     }
-}
+
 #endif
 
 void printArray(int* tab, unsigned int tabSize) {
-   for (unsigned int i = 0; i < tabSize; ++i) {
-      if ( i )  printf(", ");
-      printf("%d", tab[i]);
-   }
+    for (unsigned int i = 0; i < tabSize; ++i) {
+        if (i) printf(", ");
+        printf("%d", tab[i]);
+    }
 }

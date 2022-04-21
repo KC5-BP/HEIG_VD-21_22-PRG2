@@ -27,22 +27,22 @@ void initialiser(int* tab, unsigned int tabSize, int initValue);
 void printArray(int* tab, unsigned int tabSize);
 
 int main(void) {
-   //int tab[TAB_SIZE];    // Don't work with memset without : = {};
-   int tab[TAB_SIZE] = {};
+    //int tab[TAB_SIZE];    // Don't work with memset without : = {};
+    int tab[TAB_SIZE] = {};
 
-   initialiser(tab, TAB_SIZE, 0);
-   printArray(tab, TAB_SIZE);
+    initialiser(tab, TAB_SIZE, 0);
+    printArray(tab, TAB_SIZE);
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 void initialiser(int* tab, unsigned int tabSize, int initValue) {
-   /* ... */
+    /* ... */
 }
 
 void printArray(int* tab, unsigned int tabSize) {
-   for (unsigned int i = 0; i < tabSize; ++i) {
-      if ( i )  printf(", ");
-      printf("%d", tab[i]);
-   }
+    for (unsigned int i = 0; i < tabSize; ++i) {
+        if (i) printf(", ");
+        printf("%d", tab[i]);
+    }
 }

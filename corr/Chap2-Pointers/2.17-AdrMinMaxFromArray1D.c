@@ -25,28 +25,48 @@
 #include <stdlib.h>
 #include <assert.h>
 
-typedef enum {MIN, MAX} MINIMAX;
+#define ARRAY_FIXED_SIZE 6
+#define ARRAY_SIZE(ARRAY, ELEMENT_TYPE) sizeof(ARRAY) / sizeof(ELEMENT_TYPE)
+#define ADDRESSES_TO_RECOVER 2
+#define ENDL(void)  printf("\n")
+
+typedef enum { MIN, MAX } MINIMAX;
 
 const int* getAddressOfFirstMinimum(const int* tab, size_t tabSize);
 const int* getAddressOfFirstMaximum(const int* tab, size_t tabSize);
 const int** getAddressesOfMinAndMax(const int* tab, size_t tabSize);
+void test(const int* tab, size_t tabSize);
 
 int main(void) {
-#define SIZE 6
-    int array[SIZE] = {4, 3, 1, 2, 5, 1};
-    int** addressesMinMax = (int**) calloc(sizeof(int*), 2);
-    /*
-    printf("Array is at\t\t: %p\n", (void*) array);
-    int* lowest = getFirstMinimum(array, SIZE);
-    printf("Lowest is at\t: %p and is equal to : %d\n", (void*) lowest, *lowest);
-    int* highest = getFirstMaximum(array, SIZE);
-    printf("Highest is at\t: %p and is equal to : %d\n", (void*) highest, *highest);
-     */
-    addressesMinMax = (int**) getAddressesOfMinAndMax(array, SIZE);
-    printf("Array is at\t\t: %p\n", (void*) array);
-    printf("Lowest is at\t: %p and is equal to : %d\n", (void*) addressesMinMax[MIN], *addressesMinMax[MIN]);
-    printf("Highest is at\t: %p and is equal to : %d\n", (void*) addressesMinMax[MAX], *addressesMinMax[MAX]);
-	return EXIT_SUCCESS;
+    {
+        printf("--- CASE : Duplicated minimum -----\n");
+        test((int[]) {4, 3, 1, 2, 5, 1}, ARRAY_FIXED_SIZE);
+        ENDL();
+    }
+    {
+        printf("--- CASE : Duplicated maximum -----\n");
+        test((int[]) {4, 5, 3, 2, 5, 1}, ARRAY_FIXED_SIZE);
+        ENDL();
+    }
+    {
+        printf("--- CASE : Duplicated min & max ---\n");
+        test((int[]) {1, 5, 3, 2, 5, 1}, ARRAY_FIXED_SIZE);
+        ENDL();
+    }
+    {
+        printf("--- CASE : Unique element ---------\n");
+        int array[1] = {1};
+        test(array, ARRAY_SIZE(array, array[0]));
+        ENDL();
+    }
+    {
+        printf("--- CASE : Empty ------------------\n");
+        int array[0];
+        test(array, ARRAY_SIZE(array, array[0]));
+        ENDL();
+    }
+
+    return EXIT_SUCCESS;
 }
 
 const int* getAddressOfFirstMinimum(const int* tab, size_t tabSize) {
@@ -90,3 +110,19 @@ const int** getAddressesOfMinAndMax(const int* tab, size_t tabSize) {
     return NULL;
 }
 
+void test(const int* tab, size_t tabSize) {
+    int** addressesMinMax = (int**) malloc(sizeof(int*) * ADDRESSES_TO_RECOVER);
+    assert(addressesMinMax != NULL);
+    addressesMinMax = (int**) getAddressesOfMinAndMax(tab, tabSize);
+
+    printf("Array is at\t\t: %p\n", (void*) tab);
+    if (addressesMinMax != NULL) {
+        if (addressesMinMax[MIN] != NULL)
+            printf("Lowest is at\t: %p and is equal to : %d\n",
+                   (void*) addressesMinMax[MIN], *addressesMinMax[MIN]);
+        if (addressesMinMax[MAX] != NULL)
+            printf("Highest is at\t: %p and is equal to : %d\n",
+                   (void*) addressesMinMax[MAX], *addressesMinMax[MAX]);
+    }
+    free(addressesMinMax);
+}

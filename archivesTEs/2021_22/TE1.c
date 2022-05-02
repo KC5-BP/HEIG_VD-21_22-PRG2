@@ -71,7 +71,7 @@ void exo1(void) {
     }
     {
         printf("%s", "Exo 1c)\n");
-        #define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR "\n", (intptr_t) ADR)
+        #define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR "\n", (intptr_t) (ADR))
         int64_t m[][4] = {{1},
                           {0, 1},
                           {0, 0, 1},

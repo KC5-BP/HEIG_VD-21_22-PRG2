@@ -78,8 +78,7 @@ void exo1(void) {
                           {0, 0, 0, 1}};
         PRINT_ADDRESS(m);
         PRINT_ADDRESS(*(m + 2) + (&m[2][-1] - 3[m]));
-        // Teacher's answer is 0x18 away from m,
-        // but executing respond with 0x3B away.
+        // Answer must be 0x18 away from origin (m in this case)
         #undef PRINT_ADDRESS
     }
 }

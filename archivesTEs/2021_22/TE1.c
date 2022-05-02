@@ -117,22 +117,22 @@ void exo3(void) {
         printf("3) %d\n", (*pp++)[1]);      // 8
         printf("4) %d\n", ++**pp--);        // 9
         printf("5) %d\n", *++pp - *tp + 1); // 5
-        //      1)  *pp => tp[3] => t + 3
-        //          *(t + 3) => t[3] = 5
+        //      1)  *pp = tp[3] = t + 3
+        //          *(t + 3) <=> t[3] = 5
         //          --t[3] = 4
-        //      2)  pp[1] => tp[4] => t + 4
-        //          (t + 4)[-1] => t[3] = 4
+        //      2)  pp[1] = tp[4] = t + 4
+        //          (t + 4)[-1] <=> t[3] = 4
         //          Due to previous --t[3] in 1)
-        //      3)  *pp => tp[3] => t + 3
-        //          (t + 3)++ => t + 4 : Leading to change the pointer in tp[3]
+        //      3)  *pp = tp[3] = t + 3
+        //          (t + 3)++ <=> t + 4 : Leading to change the pointer in tp[3]
         //          But post-increase, so : (t + 3)[1] = 8
-        //      4)  *pp => tp[3] => t + 4
-        //          *(t + 4) => t[4] = 8
+        //      4)  *pp = tp[3] = t + 4
+        //          *(t + 4) = t[4] = 8
         //          ++8 = 9
         //          9--, so will return 9, but reset to 8 right behind.
         //      5)  ++pp = tp + 4
         //          *(tp + 4) = tp[4] = t + 4
-        //          t + 4 - *tp + 1 => t + 4 - t + 1 => 5 
+        //          t + 4 - *tp + 1 <=> t + 4 - t + 1 = 5
     }
     {
         printf("%s", "Exo 3b)\n");
@@ -145,6 +145,21 @@ void exo3(void) {
         printf("3) %c\n", *++*++pp);        // 'v'
         printf("4) %d (char : %c)\n", **tp[2] + 1, **tp[2] + 1);// 78 ('N') of Mai
         printf("5) %c\n", pp[0][1]);        // 'r' of Avril
+        //      1)  t[0] = "Mars"
+        //          ++"Mars" = "ars"
+        //      2)  tp[1] = t + 1
+        //          *(t + 1) = "ars" : Due to previous ++"Mars"
+        //          *"ars" = 'a'
+        //      3)  ++pp => t + 1
+        //          *(t + 1) = "Avril"
+        //          ++"Avril" = "vril"
+        //          *"vril" = 'v'
+        //      4)  tp[2] = t + 2
+        //          *(t + 2) = "Mai"
+        //          **(t + 2) = 'M'
+        //          'M' + 1 => Conversion, so numeric value of 'N' = 78
+        //      5)  pp[0] = t[1] = "vril" : Due to previous ++"Avril" in 3)
+        //          "vril"[1] = 'r'
     }
 }
 

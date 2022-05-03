@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include <assert.h>
 
 #define ENDL(void) printf("\n")
 
@@ -236,6 +237,28 @@ void exo4(void) {
     }
 }
 
+int** getMatrixEdges(const int* adr, size_t n, size_t m) {
+    assert(adr && n && m);
+    int** res = (int**) calloc(4, sizeof(int*));
+    if (res) {
+        res[0] = (int*) adr;
+        res[1] = (int*) (adr + m - 1);
+        res[2] = (int*) (adr + n * m - m);
+        res[3] = (int*) (adr + n * m - 1);
+    }
+    return res;
+}
+
+#define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR, (intptr_t) (ADR))
+void afficher(int** addresses, size_t n) {
+    printf("%s", "[");
+    for (size_t i = 0; i < n; ++i) {
+        if (i && (i != n-1) ) printf(", ");
+        PRINT_ADDRESS(addresses[i]);
+    }
+    printf("%s", "]");
+}
+
 void exo5(void) {
     printf("%s", "Exo 5) ------------------------------\n");
     printf("%s", "Ecrire de la maniere la plus simple et efficace possible,\n"
@@ -249,7 +272,28 @@ void exo5(void) {
                  "- Les adresses sont a renvoyer dans l\'ordre suivant : \n"
                  "\t\t1) Coin Superieur Gauche | 2) Coin Superieur Droit\n"
                  "\t\t3) Coin Inferieur Gauche | 4) Coin Inferieur Droit\n\n");
+    #define LINES   3
+    #define COLUMNS 4
+    const int M[][COLUMNS] = {  { 1, 2, 3, 4},
+                                { 5, 6, 7, 8},
+                                { 9,10,11,12}	};
+    PRINT_ADDRESS(&M[0][0]);    ENDL();
+    PRINT_ADDRESS(&M[0][3]);    ENDL();
+    PRINT_ADDRESS(&M[2][0]);    ENDL();
+    PRINT_ADDRESS(&M[2][3]);    ENDL();
+
+    int** edges = getMatrixEdges((int*) M, LINES, COLUMNS);
+    afficher(edges, 4); ENDL();
+
+    printf("Highest corners LEFT : %d", *edges[0]);
+    printf(" %d : Highest corners RIGHT\n\n", *edges[1]);
+    printf("Lowest corners LEFT  : %d", *edges[2]);
+    printf(" %d : Lowest corners RIGHT\n\n", *edges[3]);
+    free(edges);
+    #undef LINES
+    #undef COLUMNS
 }
+#undef PRINT_ADDRESS
 
 int main(void) {
     exo1(); ENDL();

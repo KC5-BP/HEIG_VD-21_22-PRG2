@@ -7,6 +7,7 @@
  Description    : <� compl�ter>
 
  Remarque(s)    : Exo 1c + 3 to be made on paper and scanned.
+                  Reference card : https://users.ece.utexas.edu/~adnan/c-refcard.pdf
 
  Compilateur    : Mingw-w64 gcc 11.2.0
  -----------------------------------------------------------------------------------
@@ -19,12 +20,12 @@
 #define ENDL(void) printf("\n")
 
 // 1B)
-// Process :    Depending on the MSB that will be eliminated
-//              the invert of its will be shifted from the right
+// Process :    Inject to the right, the invert value of the lost MSB
+//              after the shift.
 //              Ex. :   0101 .. 0110 << 1 => 101x .. 110y
-//                      MSB eliminated : 0, so y will be 1 => 101x .. 1101
+//                      Lost MSB : 0, so y will be 1 => 101x .. 1101
 //                      101x .. 1101 << 1 => 01xx .. 101y
-//                      MSB eliminated : 1, so y will be 0 => 01xx .. 1010
+//                      Lost MSB : 1, so y will be 0 => 01xx .. 1010
 //                      And so on ..
 uint16_t f(uint16_t a, uint8_t b) {
     const uint16_t MASK = 0x8000;
@@ -35,15 +36,14 @@ uint16_t f(uint16_t a, uint8_t b) {
 
 void exo1(void) {
     {
-        printf("%s", "Exo 1a)\n");
+        printf("%s", "Exo 1a) -----------------------------\n");
         #define double(d) d + d
         int n1 = -3;
         printf("%d\n", double(-3 == n1));
         // Replace by : -3 == n1 + -3 == n1 where n1 is : -3 == -3 + -3 == -3
         //              -3 == (-3 + -3) == -3 => -3 == -6 == -3
         //              (-3 == -6) == -3 => 0 == -3 => 0
-        // Due to operation priority, see reference card :
-        // https://users.ece.utexas.edu/~adnan/c-refcard.pdf
+        // Due to operation priority, see reference card.
         #undef double
 
         #define CARRE(X) X * X
@@ -65,12 +65,12 @@ void exo1(void) {
         #undef N
     }
     {
-        printf("%s", "Exo 1b)\n");
+        printf("%s", "Exo 1b) -----------------------------\n");
         printf("%#x\n", f(0x1234, 5));
         // After 5 iterations => 0x496d
     }
     {
-        printf("%s", "Exo 1c)\n");
+        printf("%s", "Exo 1c) -----------------------------\n");
         #define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR "\n", (intptr_t) (ADR))
         int64_t m[][4] = {{1},
                           {0, 1},
@@ -84,7 +84,7 @@ void exo1(void) {
 }
 
 void exo2(void) {
-    printf("%s", "Exo 2)\n");
+    printf("%s", "Exo 2) ------------------------------\n");
     printf("1) |%.5d|\n", 230);         // 1) |00123|
     printf("2) |%-#5X|\n", 230);        // 2) |0XE6 |
     printf("3) |%f|\n", 12.345);        // 3) |12.345000|
@@ -97,7 +97,7 @@ void exo2(void) {
     #define TAILLE_MAX 50
     char chaine[TAILLE_MAX + 1];
     printf("Entrez une chaine de caracteres (%u caract max) > "
-           "\"(089) 123-45-67 : Paul\"\n", TAILLE_MAX);
+           "\" (089) 123-45-67 : Paul\"\n", TAILLE_MAX);
     //scanf("%*[ ]%[(0123456789)]", chaine);
     sscanf(" (089) 123-45-67 : Paul", "%*[ ]%[(0123456789)]", chaine);
     printf("10) |%s|\n", chaine);       // 10) |(089))
@@ -106,7 +106,7 @@ void exo2(void) {
 
 void exo3(void) {
     {
-        printf("%s", "Exo 3a)\n");
+        printf("%s", "Exo 3a) -----------------------------\n");
         int t[] = {1, 2, 3, 5, 8, 13};
         int* tp[] = {t, t + 1, t + 2, t + 3, t + 4, t + 5};
         int** pp = tp + 3;
@@ -134,7 +134,7 @@ void exo3(void) {
         //          t + 4 - *tp + 1 <=> t + 4 - t + 1 = 5
     }
     {
-        printf("%s", "Exo 3b)\n");
+        printf("%s", "Exo 3b) -----------------------------\n");
         char* t[] = {"Mars", "Avril", "Mai"};
         char** tp[] = {t, t + 1, t + 2};
         char** pp = (char**) t;
@@ -170,6 +170,7 @@ void exo4(void) {
  * 3) Array       / Tableau
  * 4) Function    / Fonction
  */
+        printf("%s", "Exo 4a) -----------------------------\n");
         char* const (* a(void))[3];
         // ENG :
         // FR  :
@@ -219,6 +220,7 @@ void exo4(void) {
  * 2) Array       / Tableau
  * 3) Function    / Fonction
  */
+        printf("%s", "Exo 4b) -----------------------------\n");
         printf("f est une fonction prenant en parametre un pointeur constant\n"
                "sur char et livrant un pointeur sur un tableau de 3 pointeurs sur\n"
                "double = ");
@@ -235,7 +237,18 @@ void exo4(void) {
 }
 
 void exo5(void) {
-
+    printf("%s", "Exo 5) ------------------------------\n");
+    printf("%s", "Ecrire de la maniere la plus simple et efficace possible,\n"
+                 "une fonction C qui prend en parametre une matrice n(lignes) et\n"
+                 "m(colonnes) de int et qui livre en retour un tableau contenant\n"
+                 "les adresses des quatres elements constituant les coins de\n"
+                 "la matrice.\n");
+    printf("%s", "IMPORTANT : \n"
+                 "- Traduire dans la fonction le fait que le(s) parametre(s) sont "
+                 "supposes valides.\n"
+                 "- Les adresses sont a renvoyer dans l\'ordre suivant : \n"
+                 "\t\t1) Coin Superieur Gauche | 2) Coin Superieur Droit\n"
+                 "\t\t3) Coin Inferieur Gauche | 4) Coin Inferieur Droit\n\n");
 }
 
 int main(void) {
@@ -243,6 +256,6 @@ int main(void) {
     exo2(); ENDL();
     exo3(); ENDL();
     exo4(); ENDL();
-    //exo5(); ENDL();
+    exo5(); ENDL();
     return EXIT_SUCCESS;
 }

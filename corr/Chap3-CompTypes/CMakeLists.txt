@@ -1,2 +1,11 @@
 
 add_executable(3.01 3.01-ErrorCorr.c)
+add_executable(3.02 3.02-PersonDisplay_1.c)
+add_executable(3.03 3.03-PeopleDisplay.c)
+add_executable(3.04 3.04-FollowingDayOfADate.c)
+add_executable(3.05 3.05-StructSize.c)
+add_executable(3.06 3.06-PersonDisplay_2.c)
+add_executable(3.07 3.07-Boats.c)
+add_executable(3.08 3.08-WeekDaysDisplay_1.c)
+add_executable(3.09 3.09-WeekDaysDisplay_2.c)
+add_executable(3.10 3.10-DynamicStack.c)

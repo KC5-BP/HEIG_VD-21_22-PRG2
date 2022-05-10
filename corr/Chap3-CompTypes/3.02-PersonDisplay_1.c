@@ -1,6 +1,6 @@
 /*
  -----------------------------------------------------------------------------------
- Nom du fichier : <nom du fichier>.<x> (x = h ou c)
+ Nom du fichier : 3.02-PersonDisplay_1.c
  Auteur(s)      : (\_/)
  Date creation  : <jj.mm.aaaa>
 

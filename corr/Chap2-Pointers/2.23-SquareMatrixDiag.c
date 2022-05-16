@@ -87,6 +87,7 @@ void test(int* (* f)(const int*, size_t), const int* adr, size_t n) {
     afficher(vecteur, n);
     free(vecteur);
 }
+
 // Output :
 //Diagonale = [1, 5, 9]
 //Diagonale = [1, 5, 9]

@@ -237,6 +237,7 @@ void exo4(void) {
     }
 }
 
+// 5)
 int** getMatrixEdges(const int* adr, size_t n, size_t m) {
     assert(adr && n && m);
     int** res = (int**) calloc(4, sizeof(int*));
@@ -252,8 +253,7 @@ int** getMatrixEdges(const int* adr, size_t n, size_t m) {
 #define PRINT_ADDRESS(ADR) printf("0x%" PRIxPTR, (intptr_t) (ADR))
 void afficher(int** addresses, size_t n) {
     printf("%s", "[");
-    for (size_t i = 0; i < n; ++i) {
-        if (i && (i != n-1) ) printf(", ");
+    for (size_t i = 0; i < n; ++i, (n-i) && printf(", ")) {
         PRINT_ADDRESS(addresses[i]);
     }
     printf("%s", "]");
@@ -285,10 +285,14 @@ void exo5(void) {
     int** edges = getMatrixEdges((int*) M, LINES, COLUMNS);
     afficher(edges, 4); ENDL();
 
-    printf("Highest corners LEFT : %d", *edges[0]);
-    printf(" %d : Highest corners RIGHT\n\n", *edges[1]);
-    printf("Lowest corners LEFT  : %d", *edges[2]);
-    printf(" %d : Lowest corners RIGHT\n\n", *edges[3]);
+    printf("Highest corners LEFT\t\t Highest corners RIGHT\n");
+    printf("\t 0x%" PRIxPTR " : %2d %2d : 0x%" PRIxPTR "\n",
+           (intptr_t) edges[0], *edges[0],
+           *edges[1], (intptr_t) edges[1]);
+    printf("\t 0x%" PRIxPTR " : %2d %2d : 0x%" PRIxPTR "\n",
+           (intptr_t) edges[2], *edges[2],
+           *edges[3], (intptr_t) edges[3]);
+    printf(" Lowest corners LEFT\t\t Lowest corners RIGHT\n");
     free(edges);
     #undef LINES
     #undef COLUMNS

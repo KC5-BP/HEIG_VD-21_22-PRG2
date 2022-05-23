@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : 3.04-FollowingDayOfADate.c
  Auteur(s)      : (\_/)
- Date creation  : <jj.mm.aaaa>
+ Date creation  : <j .mm.aaaa>
 
  Description    : 3.04
                     Ecrire un programme C qui détermine et affiche le lendemain

@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : 3.10-DynamicStack.c
  Auteur(s)      : (\_/)
- Date création  : <jj.mm.aaaa>
+ Date creation  : <jj.mm.aaaa>
 
  Description    : 3.10
                     Compléter la partie notée <à compléter> du code ci-dessous de
@@ -27,7 +27,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/// TODO
+typedef int Info;
+
+typedef struct {
+    Info info;
+    struct Element* next;
+} Element;
+
+typedef Element* Pile;
+
+bool empiler(Pile* pile, Info info) {
+   Element* tmp = (Element*) malloc(sizeof(Element));
+   if (tmp) {
+      *tmp = (Element) {info, *pile};
+      *pile = tmp;
+      return true;
+   }
+   return false;
+}
+
+bool desempiler(Pile* pile, Info* info) {
+   if (*pile != NULL) { // Si la pile n'est pas vide
+      Element* tmp = *pile;
+      *info = tmp->info;
+      *pile = tmp->next;
+      free(tmp);
+      return true;
+   }
+   return false;
+}
+
+bool estVide(Pile p) {
+   return p == NULL;
+}
 
 int main(void) {
     Pile pile = NULL;
@@ -47,6 +79,7 @@ int main(void) {
         desempiler(&pile, &info);
         printf("%d\n", info);
     }
-
+    free(pile);
     return EXIT_SUCCESS;
 }
+

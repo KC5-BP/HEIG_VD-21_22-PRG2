@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : 3.06-PersonDisplay_2.c
  Auteur(s)      : (\_/)
- Date creation  : <jj.mm.aaaa>
+ Date creation  : <jj.mm.aaaa> 
 
  Description    : 3.06
                     Modélisez des personnes, certaines de nationalité suisse,

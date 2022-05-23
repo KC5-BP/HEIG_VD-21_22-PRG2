@@ -4,7 +4,7 @@
  Auteur(s)      : (\_/)
  Date creation  : <jj.mm.aaaa>
 
- Description    : 3.09 
+ Description    : 3.09
                     Même exercice que le 3.8, mais cette fois :
                         • l'utilisateur doit pouvoir saisir le nom d'un jour en
                         minuscules et/ou majuscules avec d'éventuels espaces

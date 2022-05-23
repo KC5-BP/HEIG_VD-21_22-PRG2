@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : 3.05-StructSize.c
  Auteur(s)      : (\_/)
- Date creation  : <jj.mm.aaaa>
+ Date creation  : <j .mm.aaaa>
 
  Description    : 3.05
                     a) Soit la structure S1 suivante : (Voir code ci-dessous)

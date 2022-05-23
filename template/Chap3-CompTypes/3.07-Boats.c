@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : 3.07-Boats.
  Auteur(s)      : (\_/)
- Date creation  : <jj.mm.aaaa>
+ Date creation  : <j .mm.aaaa>
 
  Description    : 3.07
                     Modélisez des bateaux, plus précisément des voiliers et des

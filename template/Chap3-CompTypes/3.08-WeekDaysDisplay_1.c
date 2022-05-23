@@ -6,7 +6,7 @@
 
  Description    : 3.08
                     En utilisant le concept de type énuméré, écrire un programme C
-                    qui :
+                    qui : 
                         1) demande à l'utilisateur de saisir, en toutes lettres et
                         entièrement en minuscules, un jour de la semaine*
                         2) affiche, entièrement en minuscules et à raison d'un nom

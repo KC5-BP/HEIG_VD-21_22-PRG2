@@ -14,10 +14,11 @@ file(GLOB 5_02_PERSON_DATAS
 # instead of
 # FILE* file = fopen("../whatever/shitty/path/there/is/to/personnes.dat")
 foreach( FOLDER ${FOLDERS_USING_PERSON_DATAS} )
-    file(COPY ${5_02_PERSON_DATAS}
 # Copy ${5_02_PERSON_DATAS} into the user dir. (a.k.a. repo/corr/Chap5-Files/...
+#    file(COPY ${5_02_PERSON_DATAS}
 #         DESTINATION "${PROJECT_SOURCE_DIR}/corr/Chap5-Files/${FOLDER}/")
 # Copy ${5_02_PERSON_DATAS} into cmake-build-debug/ where the output is created
+    file(COPY ${5_02_PERSON_DATAS}
          DESTINATION "${FOLDER}/")
 endforeach()
 

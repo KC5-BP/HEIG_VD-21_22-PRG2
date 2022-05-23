@@ -55,7 +55,7 @@ int main(void) {
 }
 
 bool isBissextile(uint16_t annee) {
-    return annee % 400 == 0 || ((annee % 4 == 0) && (annee % 100 != 0));c
+    return annee % 400 == 0 || ((annee % 4 == 0) && (annee % 100 != 0));
 }
 
 uint8_t nbJoursDansMois(uint8_t mois, uint16_t annee) {

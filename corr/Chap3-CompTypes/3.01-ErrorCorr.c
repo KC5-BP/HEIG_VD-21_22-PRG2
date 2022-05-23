@@ -26,41 +26,44 @@
 #define VARIANTE 1
 
 #if VARIANTE == 1
-struct S {
-    int a;
-    char b[4];
-};
+    struct S {
+        int a;
+        char b[4];
+    };
 
-void afficher(const struct S* s);
+    void afficher(const struct S* s);
 
-int main(void) {
-    struct S s = {.a = 1, .b = "ABC"};
-    afficher(&s);
+    int main(void) {
+        struct S s = {.a = 1, .b = "ABC"};
+        afficher(&s);
 
-    return EXIT_SUCCESS;
-}
+        return EXIT_SUCCESS;
+    }
 
-void afficher(const struct S* s) {
-    printf("a = %d, b = \"%s\"\n", s->a, s->b);
-}
+    void afficher(const struct S* s) {
+        printf("a = %d, b = \"%s\"\n", s->a, s->b);
+    }
 
 #elif VARIANTE == 2
-typedef struct {
-    int a;
-    char b[4];
-} S;
+    typedef struct {
+        int a;
+        char b[4];
+    } S;
 
-void afficher(const S* s);
+    void afficher(const S* s);
 
-int main(void) {
-    S s = { 1, "ABC"};
-    afficher(&s);
+    int main(void) {
+        S s = { 1, "ABC"};
+        afficher(&s);
 
-    return EXIT_SUCCESS;
-}
+        return EXIT_SUCCESS;
+    }
 
-void afficher(const S* s) {
-    printf("a = %d, b = \"%s\"\n", s->a, s->b);
-}
+    void afficher(const S* s) {
+        printf("a = %d, b = \"%s\"\n", s->a, s->b);
+    }
 
 #endif
+
+// Output :
+//a = 1, b = "ABC"

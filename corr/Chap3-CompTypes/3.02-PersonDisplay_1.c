@@ -38,7 +38,7 @@
 
 typedef char Nom[TAILLE_NOM_MAX + 1];
 typedef uint8_t Taille;
-typedef enum {BLUE, VERT, GRIS, MARRON, NOIR} CouleurYeux;
+typedef enum { BLUE, VERT, GRIS, MARRON, NOIR } CouleurYeux;
 
 typedef struct {
     Nom nom;
@@ -61,7 +61,7 @@ int main(void) {
     printf("\n");
     afficher_2(&p);
     printf("\n");
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 void afficher_1(Personne p) {
@@ -73,3 +73,12 @@ void afficher_2(const Personne* p) {
     printf("Taille  : %" PRIu8 "[cm]\n", p->taille);
     printf("Couleur : %s\n", COULEURS_YEUX[p->couleurYeux]);
 }
+
+// Ouput :
+//Nom     : Toto
+//Taille  : 180[cm]
+//Couleur : blue
+//
+//Nom     : Toto
+//Taille  : 180[cm]
+//Couleur : blue

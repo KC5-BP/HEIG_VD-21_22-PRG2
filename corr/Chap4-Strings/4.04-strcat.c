@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : 4.04-strcat.c
  Auteur(s)      : (\_/)
- Date creation  : <jj.mm.aaaa>
+ Date creation  : <j .mm.aaaa>
 
  Description    : 4.04
                     Proposez une implémentation de la fonction strcat dont le

@@ -1,8 +1,7 @@
-//
+
 // Under : Run > Edit Configurations ... > CMake Applications
 //         > myprog > program arguments
 // add the following : -opt1=10 test.dat 20 -opt2=src
-//
 
 #include <stdio.h>
 

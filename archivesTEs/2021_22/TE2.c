@@ -2,7 +2,7 @@
  -----------------------------------------------------------------------------------
  Nom du fichier : <nom du fichier>.<x> (x = h ou c)
  Auteur(s)      : (\_/)
- Date creation  : <jj.mm.aaaa>
+ Date creation  : <j .mm.aaaa>
 
  Description    : <� compl�ter>
 

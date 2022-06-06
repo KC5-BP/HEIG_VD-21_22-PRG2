@@ -229,24 +229,72 @@ void inserer(char* to, const char* from, const size_t pos) {
     }
 }
 
-void exo4(void) {
-    {
-        printf("%s", "Exo 4a) -----------------------------\n");
-        char chaine1[] = "XXXXX";   // With implicite '\0' at the end
-        char chaine2[5];
-        const char* chaine3 = "ABC";
-        strcpy(chaine2, chaine1);
-        // After: chaine2 = "XXXXX", but chaine1 = "\0XXXX\0"
-        strncpy(chaine2, chaine3, strlen(chaine2));
-        // Before: strlen chaine2 = 5
-        // After chaine2 = "ABC\0\0" and so strlen chaine2 = 3
-        printf("%s\n", strncpy(chaine1 + 1, chaine3, strlen(chaine2)));
-        // chaine1 = "\0ABCX\0"
-        // chaine1 + 1, so return and display "ABCX"
+// 4)
+typedef int Info;
+typedef struct element {
+    Info info;
+    struct element* suivant;
+} Element;
+typedef Element* Liste;
 
-        printf("%s", "Exo 4b) -----------------------------\n");
-        printf("Total errors : 6\n");
+bool insererEnQueue(Liste *liste, const Info *info) {
+    // Alloue la taille nécessaire à un nouvel élément
+    Element *nouveau = (Element*) calloc(1, sizeof(Element));
+    if (liste && info && nouveau) {
+        // Si calloc memoire ok + adresses fournies valides
+        if ( !*liste) { // Liste vide
+            // Premier nouvel objet repointant sur le début alors lui-même
+            *nouveau = (Element) {*info, nouveau};
+            *liste = nouveau;   // Accroche le premier élément au pointeur liste
+        } else {        // Liste pas vide
+            // Recherche du dernier élément pointant sur le début
+            Element* last = *liste;
+            while (last->suivant != *liste)
+                last = last->suivant;
+            // Nouvel objet repointant sur le début du buffer circulaire
+            *nouveau = (Element) {*info, *liste};
+            // Dernier élément pointe sur le nouvel élément créé
+            last->suivant = nouveau;
+        }
+        return true;
     }
+    // Si calloc mémoire pas ok
+    free(nouveau);
+    return false;
+}
+void afficherListe(const Liste* liste) {
+    printf("[");
+    for (Element* p = *liste; p; p = p->suivant) {
+        printf("%d", p->info);
+        if (p->suivant != *liste)
+            printf(", ");
+        else
+            break;
+    }
+    printf("]\n");
+}
+
+void libereListe(Liste* liste) {
+    if (!*liste)    return;
+    if ((*liste)->suivant == *liste) {  // Un unique élément
+        free(*liste);
+        *liste = NULL;
+    } else {
+        Element* saved = *liste;
+        for (Element* p = saved; p; p = (saved == *liste ? NULL : saved)) {
+            saved = saved->suivant;
+            free(p);
+        }
+    }
+}
+
+void exo4(void) {
+    printf("%s", "Exo 4) ------------------------------\n");
+    Liste l = NULL;
+    for (Info info = 5; info < 10; ++info)
+        insererEnQueue(&l, &info);
+    afficherListe(&l);
+    libereListe(&l);
 }
 
 void exo5(void) {

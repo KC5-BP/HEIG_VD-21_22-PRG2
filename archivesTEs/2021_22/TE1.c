@@ -68,7 +68,7 @@ void exo1(void) {
     {
         printf("%s", "Exo 1b) -----------------------------\n");
         printf("%#x\n", f(0x1234, 5));
-        // After 5 iterations => 0x496d
+        // After 5 iterations => 0x469d
     }
     {
         printf("%s", "Exo 1c) -----------------------------\n");

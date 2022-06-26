@@ -126,13 +126,16 @@ void exo3(void) {
         //      3)  *pp = tp[3] = t + 3
         //          (t + 3)++ <=> t + 4 : Leading to change the pointer in tp[3]
         //          But post-increase, so : (t + 3)[1] = 8
-        //      4)  *pp = tp[3] = t + 4
-        //          *(t + 4) = t[4] = 8
+        //      4)  pp = tp + 4
+        //          pp-- => tp + 3 => Return tp + 4
+        //          *(tp+4) <=> tp[4] = t + 4
+        //          *(t+4) <=> t[4] = 8
         //          ++8 = 9
-        //          9--, so will return 9, but reset to 8 right behind.
         //      5)  ++pp = tp + 4
         //          *(tp + 4) = tp[4] = t + 4
         //          t + 4 - *tp + 1 <=> t + 4 - t + 1 = 5
+        //
+        // Remark(s) : *pp-- => Firstly pp-- AND THEN *pp
     }
     {
         printf("%s", "Exo 3b) -----------------------------\n");
